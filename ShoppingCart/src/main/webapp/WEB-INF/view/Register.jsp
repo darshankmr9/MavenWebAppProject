@@ -7,8 +7,6 @@
 <title>Shopping Cart Register Page</title>
 </head>
 <body>
-This is Register Page.
-
 <form action="">
 Username:<input type="text" name="userID"><br>
 Password:<input type="password" name="password"><br>

@@ -7,13 +7,12 @@
 <title>Shopping Cart Login Page</title>
 </head>
 <body>
-This is Login Page.
-<!-- uID=niit, pwd= niit@123.  -->
+<!-- userID=niit, pwd= niit@123.  -->
 <form action="validate" method="post">
 Username: <input type="text" name="userID" placeholder="Enter username"><br>
 Password: <input type="password" name="password" placeholder="Enter password"><br> 
 <input type="submit" value="Login">
-<input type="reset" value="reset">
+<input type="reset" value="Reset">
 </form>
 </body>
 </html>

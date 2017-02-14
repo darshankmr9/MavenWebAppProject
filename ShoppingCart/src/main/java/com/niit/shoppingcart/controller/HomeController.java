@@ -1,5 +1,8 @@
 package com.niit.shoppingcart.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -7,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private HttpSession session;
 
 	@RequestMapping("/")
 	public ModelAndView showHomePage() {
@@ -33,18 +39,27 @@ public class HomeController {
 	public ModelAndView validateCredentials(@RequestParam("userID") String id, 
 			@RequestParam("password") String pwd)
 	{
-		//uID=niit, pwd= niit@123.
+		//userID=niit, pwd= niit@123.
 		
 		ModelAndView mv=new ModelAndView("/Home");
 		
 		if(id.equals("niit") && pwd.equals("niit@123"))
 		{
-			mv.addObject("msg", "Valid Credentials");
+			mv.addObject("successMessage", "Valid Credentials");
+			session.setAttribute("loginMessage","Welcome : "+id);
 		}
 		else
 		{
-			mv.addObject("msg", "Invalid Credentials");
+			mv.addObject("errorMessage", "Invalid Credentials");			
 		}
+		return mv;
+	}
+
+	@RequestMapping("/logout")
+	public ModelAndView logout()
+	{
+		ModelAndView mv=new ModelAndView("/Home");
+		session.invalidate();
 		return mv;
 	}
 	

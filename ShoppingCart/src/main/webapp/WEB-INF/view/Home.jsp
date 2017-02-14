@@ -13,18 +13,33 @@
 
 <hr>
 
+${loginMessage}${errorMessage}<br>
+${successMessage}
+
+<hr>
+
+<c:if test="${empty loginMessage}">
 <a href="login">Login</a><br>
-<a href="register">Register</a>
+</c:if>
+
+<c:if test="${not empty loginMessage}">
+<a href="logout">Logout</a><br>
+<a href="myCart">My Cart</a><br>
+</c:if>
+
+<a href="register">Register</a><br>
+
+
+
 <br><br>
-<c:if test="${LoginClicked==true}">
+
+<c:if test="${LoginClicked==true or not empty errorMessage}">
 <jsp:include page="Login.jsp"></jsp:include>
 </c:if>
 
 <c:if test="${RegisterClicked==true}">
 <jsp:include page="Register.jsp"></jsp:include>
 </c:if>
-
-${msg}
 
 </body>
 </html>
