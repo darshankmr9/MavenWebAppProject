@@ -13,6 +13,9 @@
 
 <hr>
 
+<jsp:include page="CategoryMenu.jsp"></jsp:include>
+
+<hr>
 ${loginMessage}${errorMessage}<br>
 ${successMessage}
 
@@ -20,16 +23,13 @@ ${successMessage}
 
 <c:if test="${empty loginMessage}">
 <a href="login">Login</a><br>
+<a href="register">Register</a><br>
 </c:if>
 
 <c:if test="${not empty loginMessage}">
 <a href="logout">Logout</a><br>
 <a href="myCart">My Cart</a><br>
 </c:if>
-
-<a href="register">Register</a><br>
-
-
 
 <br><br>
 
