@@ -4,32 +4,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Shopping Cart Login Page</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<!-- userID=niit, pwd= niit@123.  -->
-
+	<jsp:include page="Header.jsp"></jsp:include>
 	<div class="text-center" style="padding: 50px 0">
-		<div class="logo">login</div>
+		<div class="logo">forgot password</div>
 		<!-- Main Form -->
 		<div class="login-form-1">
-			<form id="login-form" class="text-left" method="post">
+			<form id="forgot-password-form" class="text-left">
+				<div class="etc-login-form">
+					<p>When you fill in your registered email address, you will be
+						sent instructions on how to reset your password.</p>
+				</div>
 				<div class="login-form-main-message"></div>
 				<div class="main-login-form">
 					<div class="login-group">
 						<div class="form-group">
-							<label for="username" class="sr-only">Username</label> <input
-								type="text" class="form-control" id="userID" name="userID"
-								placeholder="username">
-						</div>
-						<div class="form-group">
-							<label for="password" class="sr-only">Password</label> <input
-								type="password" class="form-control" id="password"
-								name="password" placeholder="password">
-						</div>
-						<div class="form-group login-group-checkbox">
-							<input type="checkbox" id="lg_remember" name="lg_remember">
-							<label for="lg_remember">remember me</label>
+							<label for="fp_email" class="sr-only">Email address</label> <input
+								type="text" class="form-control" id="fp_email" name="fp_email"
+								placeholder="email address">
 						</div>
 					</div>
 					<button type="submit" class="login-button">
@@ -38,7 +32,7 @@
 				</div>
 				<div class="etc-login-form">
 					<p>
-						forgot your password? <a href="forgotpassword">click here</a>
+						already have an account? <a href="login">login here</a>
 					</p>
 					<p>
 						new user? <a href="register">create new account</a>
@@ -47,6 +41,6 @@
 			</form>
 		</div>
 	</div>
-	
+	<jsp:include page="Footer.jsp"></jsp:include>
 </body>
 </html>
