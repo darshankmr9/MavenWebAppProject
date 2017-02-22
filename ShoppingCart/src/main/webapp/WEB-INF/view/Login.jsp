@@ -8,10 +8,8 @@
 </head>
 <body>
 	<!-- userID=niit, pwd= niit@123.  -->
-
 	<div class="text-center" style="padding: 50px 0">
 		<div class="logo">login</div>
-		<!-- Main Form -->
 		<div class="login-form-1">
 			<form id="login-form" class="text-left" method="post">
 				<div class="login-form-main-message"></div>
@@ -47,6 +45,5 @@
 			</form>
 		</div>
 	</div>
-	
 </body>
 </html>
