@@ -33,11 +33,11 @@
 		</property>
 	</bean>
 
-	<bean id="userDAO" class="com.sajal.shoppingcart.dao.UserDAOImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 	<bean id="userService" class="com.sajal.shoppingcart.service.UserServiceImpl">
 		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="userDAO" class="com.sajal.shoppingcart.dao.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
 

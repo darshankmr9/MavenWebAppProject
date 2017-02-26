@@ -11,13 +11,14 @@
 	<div class="text-center" style="padding: 50px 0">
 		<div class="logo">login</div>
 		<div class="login-form-1">
-			<form id="login-form" class="text-left" method="post">
+			<form id="login-form" class="text-left" method="post"
+				action="validate">
 				<div class="login-form-main-message"></div>
 				<div class="main-login-form">
 					<div class="login-group">
 						<div class="form-group">
 							<label for="username" class="sr-only">Username</label> <input
-								type="text" class="form-control" id="userID" name="userID"
+								type="text" class="form-control" id="username" name="username"
 								placeholder="username">
 						</div>
 						<div class="form-group">

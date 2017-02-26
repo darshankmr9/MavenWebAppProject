@@ -34,7 +34,8 @@
 						<p>
 							already have an account? <a href="login">login here</a>
 						</p>
-					</div></div>
+					</div>
+				</div>
 			</fm:form>
 		</div>
 	</div>

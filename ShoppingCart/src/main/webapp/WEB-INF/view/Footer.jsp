@@ -21,9 +21,6 @@
 				<div class="col-md-6 col-sm-6">
 					<div class="contact-info">
 						<h2 class="footer-title">Contact Info</h2>
-
-
-
 						<div class="single">
 							<a href="#">GitHub</a>
 						</div>

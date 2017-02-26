@@ -3,35 +3,26 @@ package com.sajal.shoppingcart.controller;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajal.shoppingcart.model.User;
-import com.sajal.shoppingcart.service.UserService;
 
 @Controller
 public class HomeController {
-
-	private UserService userService;
-
-	@Autowired(required = true)
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 	@Autowired
 	private HttpSession session;
 
 	@RequestMapping("/")
-	public ModelAndView showHomePage() {
+	public ModelAndView showStartPage() {
 		ModelAndView mv = new ModelAndView("/Home");
 		return mv;
 	}
 
 	@RequestMapping("/home")
-	public ModelAndView showHomePage1() {
+	public ModelAndView showHomePage() {
 		ModelAndView mv = new ModelAndView("/Home");
 		return mv;
 	}
@@ -69,24 +60,18 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping("/registerForm")
-	public ModelAndView userAdd(@ModelAttribute("user") User u) {
-		ModelAndView mv = new ModelAndView("/Home");
-		userService.addUser(u);
-		return mv;
-	}
-
 	@RequestMapping("/validate")
-	public ModelAndView validateCredentials(@RequestParam("userID") String id, @RequestParam("password") String pwd) {
+	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
 
-		// userID=niit, pwd= niit@123.
+		// username=niit, pwd= niit@123.
 
 		ModelAndView mv = new ModelAndView("/Home");
 
 		if (id.equals("niit") && pwd.equals("niit@123")) {
 			mv.addObject("successMessage", "Login Successful.");
 			session.setAttribute("loginMessage", "Welcome : " + id);
-		} else {
+		} 
+		else {
 			mv.addObject("errorMessage", "Login Failed.");
 		}
 		return mv;
