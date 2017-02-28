@@ -39,6 +39,12 @@
 	<bean id="userDAO" class="com.sajal.shoppingcart.dao.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	<bean id="productService" class="com.sajal.shoppingcart.service.ProductServiceImpl">
+		<property name="productDAO" ref="productDAO"></property>
+	</bean>
+	<bean id="productDAO" class="com.sajal.shoppingcart.dao.ProductDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
 
 	<bean id="hibernateTransactionManager"

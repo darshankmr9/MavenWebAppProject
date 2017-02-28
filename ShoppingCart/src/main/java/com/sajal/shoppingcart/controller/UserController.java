@@ -14,6 +14,14 @@ public class UserController {
 
 	private UserService userService;
 
+	@RequestMapping("/register")
+	public ModelAndView showRegisterPage() {
+		ModelAndView mv = new ModelAndView("/Home");
+		mv.addObject("RegisterClicked", "true");
+		mv.addObject("user", new User());
+		return mv;
+	}
+	
 	@Autowired(required = true)
 	public void setUserService(UserService userService) {
 		this.userService = userService;

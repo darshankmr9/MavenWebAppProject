@@ -83,6 +83,7 @@
 							</ul>
 							</li>
 						<li><a href="aboutus">About Us</a></li>
+						<li><a href="addProduct">Add Product</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown"><a href="login" class="dropdown-toggle"
@@ -100,6 +101,7 @@
 							</ul>
 							</li>
 						<li><a href="mycart">My Cart</a></li>
+						
 					</ul>
 				</div>
 			</nav>

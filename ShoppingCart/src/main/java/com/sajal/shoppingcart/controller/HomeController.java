@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sajal.shoppingcart.model.User;
-
 @Controller
 public class HomeController {
 
@@ -49,14 +47,6 @@ public class HomeController {
 	@RequestMapping("/forgotpassword")
 	public ModelAndView showForgotPasswordPage() {
 		ModelAndView mv = new ModelAndView("/ForgotPassword");
-		return mv;
-	}
-
-	@RequestMapping("/register")
-	public ModelAndView showRegisterPage() {
-		ModelAndView mv = new ModelAndView("/Home");
-		mv.addObject("RegisterClicked", "true");
-		mv.addObject("user", new User());
 		return mv;
 	}
 

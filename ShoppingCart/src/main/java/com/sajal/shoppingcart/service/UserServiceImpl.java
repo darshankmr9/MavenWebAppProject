@@ -8,6 +8,7 @@ import com.sajal.shoppingcart.model.User;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
 	private UserDAO userDAO;
 
 	public void setUserDAO(UserDAO userDAO) {
