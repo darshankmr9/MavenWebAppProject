@@ -22,6 +22,11 @@ import com.sajal.shoppingcart.service.ProductService;
 public class ProductController {
 
 	private ProductService ProductService;
+	
+	@Autowired(required = true)
+	public void setProductService(ProductService productService) {
+		this.ProductService = productService;
+	}
 
 	@RequestMapping("/addProduct")
 	public ModelAndView showRegisterProductPage() {
@@ -30,11 +35,7 @@ public class ProductController {
 		return mv;
 	}
 
-	@Autowired(required = true)
-	public void setProductService(ProductService productService) {
-		this.ProductService = productService;
-	}
-
+	
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
 	String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model,
 			HttpServletRequest request) {
@@ -42,7 +43,7 @@ public class ProductController {
 			// model.addAttribute("listProduct",
 			// this.ProductService.getAllProducts());
 			System.out.println("error");
-			return "Home";
+			return "/Home";
 		} else {
 			if (p.getPid() == 0) {
 				this.ProductService.addProduct(p);
@@ -59,7 +60,7 @@ public class ProductController {
 				} catch (Exception e) {
 				}
 			}
-			return "addProduct";
+			return "/RegisterProduct";
 		}
 	}
 }

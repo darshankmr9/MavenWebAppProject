@@ -73,5 +73,4 @@ public class HomeController {
 		session.invalidate();
 		return mv;
 	}
-
 }
