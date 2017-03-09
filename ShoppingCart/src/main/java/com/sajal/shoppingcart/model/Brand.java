@@ -6,21 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
-public class Product implements Serializable {
+public class Brand implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 	private String name;
 	private String desc;
-	private long price;
-	@Transient
-	private MultipartFile image;
 
 	public String getId() {
 		return id;
@@ -46,19 +40,4 @@ public class Product implements Serializable {
 		this.desc = desc;
 	}
 
-	public long getPrice() {
-		return price;
-	}
-
-	public void setPrice(long price) {
-		this.price = price;
-	}
-
-	public MultipartFile getImage() {
-		return image;
-	}
-
-	public void setImage(MultipartFile image) {
-		this.image = image;
-	}
 }

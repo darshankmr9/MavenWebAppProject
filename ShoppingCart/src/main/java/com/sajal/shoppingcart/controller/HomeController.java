@@ -7,8 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajal.shoppingcart.dao.UserDAO;
+import com.sajal.shoppingcart.model.User;
+
 @Controller
 public class HomeController {
+
+	@Autowired
+	private UserDAO userDAO;
+
+	@Autowired
+	private User user;
 
 	@Autowired
 	private HttpSession session;
@@ -51,17 +60,23 @@ public class HomeController {
 	}
 
 	@RequestMapping("/validate")
-	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
-
-		// username=niit, pwd= niit@123.
+	public ModelAndView validateCredentials(@RequestParam("username") String id, 
+			@RequestParam("password") String pwd) {
 
 		ModelAndView mv = new ModelAndView("/Home");
 
-		if (id.equals("niit") && pwd.equals("niit@123")) {
+		if (userDAO.validate(id, pwd)) {
+
+			user = userDAO.getUserByName(id);
+
+			if (user.getRole().equals("ROLE_ADMIN")) {
+				mv.addObject("role", "Admin");
+			} else {
+				mv.addObject("role", "Customer");
+			}
 			mv.addObject("successMessage", "Login Successful.");
 			session.setAttribute("loginMessage", "Welcome : " + id);
-		} 
-		else {
+		} else {
 			mv.addObject("errorMessage", "Login Failed.");
 		}
 		return mv;
@@ -70,7 +85,8 @@ public class HomeController {
 	@RequestMapping("/logout")
 	public ModelAndView logout() {
 		ModelAndView mv = new ModelAndView("/Home");
-		session.invalidate();
+		// session.invalidate();
+		session.removeAttribute("loginMessage");
 		return mv;
 	}
 }

@@ -7,27 +7,27 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sajal.shoppingcart.model.Product;
+import com.sajal.shoppingcart.model.Supplier;
 
-@Repository("ProductDAO")
-public class ProductDAOImpl implements ProductDAO {
+@Repository("SupplierDAO")
+public class SupplierDAOImpl implements SupplierDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	Session ss=sessionFactory.getCurrentSession();
 
-	public ProductDAOImpl(SessionFactory sessionFactory) {
+	public SupplierDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public List<Product> product() {
-		return ss.createQuery("from Product").list();
+	public List<Supplier> supplier() {
+		return ss.createQuery("from Supplier").list();
 	}
 
-	public boolean save(Product product) {
+	public boolean save(Supplier supplier) {
 		try {
-			ss.save(product);
+			ss.save(supplier);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,9 +35,9 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	public boolean update(Product product) {
+	public boolean update(Supplier supplier) {
 		try {
-			ss.update(product);
+			ss.update(supplier);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	public boolean delete(String id) {
 		try {
-			ss.delete(getProductByID(id));
+			ss.delete(getSupplierByID(id));
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,9 +55,9 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	public boolean delete(Product product) {
+	public boolean delete(Supplier supplier) {
 		try {
-			ss.delete(product);
+			ss.delete(supplier);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,13 +65,13 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	public Product getProductByID(String id) {
-		return (Product) ss.createQuery("from Product where id = '" + id + "'")
+	public Supplier getSupplierByID(String id) {
+		return (Supplier) ss.createQuery("from Supplier where id = '" + id + "'")
 				.uniqueResult();
 	}
 
-	public Product getProductByName(String name) {
-		return (Product) ss.createQuery("from Product where name = '" + name + "'")
+	public Supplier getSupplierByName(String name) {
+		return (Supplier) ss.createQuery("from Supplier where name = '" + name + "'")
 				.list().get(0);
 	}
 

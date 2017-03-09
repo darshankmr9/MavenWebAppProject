@@ -10,28 +10,59 @@ import javax.persistence.Id;
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int uid;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id;
 	private String username;
 	private String password;
-	
-	public int getUid() {
-		return uid;
+	private String email;
+	private String contact;
+	private String Role;
+
+	public String getId() {
+		return id;
 	}
-	public void setUid(int uid) {
-		this.uid = uid;
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getRole() {
+		return Role;
+	}
+
+	public void setRole(String role) {
+		Role = role;
+	}
 }

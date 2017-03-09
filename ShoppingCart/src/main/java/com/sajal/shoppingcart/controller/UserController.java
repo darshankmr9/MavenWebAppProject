@@ -30,7 +30,7 @@ public class UserController {
 	@RequestMapping("/registerForm")
 	public ModelAndView userAdd(@ModelAttribute("user") User u) {
 		ModelAndView mv = new ModelAndView("/Home");
-		userService.addUser(u);
+		userService.save(u);
 		return mv;
 	}
 

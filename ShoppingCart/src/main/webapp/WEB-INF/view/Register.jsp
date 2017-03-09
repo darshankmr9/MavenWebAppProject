@@ -17,6 +17,16 @@
 							type="password" class="form-control" id="password"
 							name="password" placeholder="password">
 					</div>
+					<div class="form-group">
+						<label for="email" class="sr-only">Email</label> <input
+							type="email" class="form-control" id="email"
+							name="email" placeholder="email">
+					</div>
+					<div class="form-group">
+						<label for="contact" class="sr-only">Contact</label> <input
+							type="text" class="form-control" id="contact"
+							name="contact" placeholder="contact">
+					</div>
 					<button type="submit" class="login-button">
 						<i class="fa fa-chevron-right"></i>
 					</button>

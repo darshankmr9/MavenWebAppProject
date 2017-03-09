@@ -1,5 +1,7 @@
 package com.sajal.shoppingcart.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +18,45 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public void addProduct(Product p) {
-		productDAO.addProduct(p);
+	public List<Product> product() {
+		productDAO.product();
+		return null;
+	}
 
+	@Transactional
+	public boolean save(Product product) {
+		productDAO.save(product);
+		return false;
+	}
+
+	@Transactional
+	public boolean update(Product product) {
+		productDAO.update(product);
+		return false;
+	}
+
+	@Transactional
+	public boolean delete(String id) {
+		productDAO.delete(id);
+		return false;
+	}
+
+	@Transactional
+	public boolean delete(Product product) {
+		productDAO.delete(product);
+		return false;
+	}
+
+	@Transactional
+	public Product getProductByID(String id) {
+		productDAO.getProductByID(id);
+		return null;
+	}
+
+	@Transactional
+	public Product getProductByName(String name) {
+		productDAO.getProductByID(name);
+		return null;
 	}
 
 }

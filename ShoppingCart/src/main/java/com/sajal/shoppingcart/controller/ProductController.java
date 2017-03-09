@@ -40,17 +40,16 @@ public class ProductController {
 	String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model,
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
-			// model.addAttribute("listProduct",
-			// this.ProductService.getAllProducts());
+			model.addAttribute("listProduct",this.ProductService.product());
 			System.out.println("error");
 			return "/Home";
 		} else {
-			if (p.getPid() == 0) {
-				this.ProductService.addProduct(p);
+			if (p.getId().equals(0)) {
+				this.ProductService.save(p);
 				MultipartFile file = p.getImage();
 				String filelocation = request.getSession().getServletContext().getRealPath("/resources/images/");
 				System.out.println(filelocation);
-				String filename = filelocation + "\\" + p.getPid() + ".jpg";
+				String filename = filelocation + "\\" + p.getId() + ".jpg";
 				System.out.println(filename);
 				try {
 					byte b[] = file.getBytes();

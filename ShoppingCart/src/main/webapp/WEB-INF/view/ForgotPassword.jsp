@@ -1,4 +1,4 @@
-<jsp:include page="Header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
 <div class="text-center" style="padding: 50px 0">
 	<div class="logo">forgot password</div>
 	<!-- Main Form -->
@@ -32,4 +32,4 @@
 		</form>
 	</div>
 </div>
-<jsp:include page="Footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>
