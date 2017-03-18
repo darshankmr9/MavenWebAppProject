@@ -2,15 +2,15 @@ package com.sajal.shoppingcart.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component("user")
 public class User implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 	private String username;
 	private String password;
@@ -65,4 +65,5 @@ public class User implements Serializable {
 	public void setRole(String role) {
 		Role = role;
 	}
+	public User(){}
 }

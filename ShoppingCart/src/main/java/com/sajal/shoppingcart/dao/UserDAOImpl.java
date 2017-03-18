@@ -6,28 +6,39 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sajal.shoppingcart.model.User;
 
-@Repository("UserDAO")
+@Transactional
+@Repository("userDAO")
 public class UserDAOImpl implements UserDAO {
+
+	UserDAOImpl() {
+	}
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	Session ss=sessionFactory.getCurrentSession();
+
+	Session session;
 
 	public UserDAOImpl(SessionFactory sessionFactory) {
+
 		this.sessionFactory = sessionFactory;
 	}
 
 	public List<User> user() {
-		return ss.createQuery("from User").list();
+		session = sessionFactory.getCurrentSession();
+		return session.createQuery("from User").list();
 	}
 
 	public boolean save(User user) {
 		try {
-			ss.save(user);
+			session = sessionFactory.getCurrentSession();
+			user.setId(user.getUsername());
+			user.setRole("ROLE_USER");
+			session.save(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -37,7 +48,8 @@ public class UserDAOImpl implements UserDAO {
 
 	public boolean update(User user) {
 		try {
-			ss.update(user);
+			session = sessionFactory.getCurrentSession();
+			session.update(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -47,7 +59,8 @@ public class UserDAOImpl implements UserDAO {
 
 	public boolean delete(String id) {
 		try {
-			ss.delete(getUserByID(id));
+			session = sessionFactory.getCurrentSession();
+			session.delete(getUserByID(id));
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -57,7 +70,8 @@ public class UserDAOImpl implements UserDAO {
 
 	public boolean delete(User user) {
 		try {
-			ss.delete(user);
+			session = sessionFactory.getCurrentSession();
+			session.delete(user);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,18 +80,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUserByID(String id) {
-		return (User) ss.createQuery("from User where id = '" + id + "'")
-				.uniqueResult();
+		session = sessionFactory.getCurrentSession();
+		return (User) session.createQuery("from User where id = '" + id + "'").uniqueResult();
 	}
 
 	public User getUserByName(String name) {
-		return (User) ss.createQuery("from User where name = '" + name + "'").list()
-				.get(0);
+		session = sessionFactory.getCurrentSession();
+		return (User) session.createQuery("from User where username = '" + name + "'").list().get(0);
 	}
 
-	public boolean validate(String id, String password) {
-		String hql = "from User where id = " + id + "' and password = '" + password + ";";
-		if (ss.createQuery(hql).uniqueResult() == null) {
+	public boolean validate(String username, String password) {
+		session = sessionFactory.getCurrentSession();
+		String hql = "from User where username='"+username+"' and password='"+ password+"'";
+		if (session.createQuery(hql).uniqueResult() != null) {
 			return true;
 		}
 		return false;

@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajal.shoppingcart.dao.UserDAO;
 import com.sajal.shoppingcart.model.User;
-import com.sajal.shoppingcart.service.UserService;
 
 @Controller
 public class UserController {
 
-	private UserService userService;
+	@Autowired
+	private UserDAO userDAO;
 
 	@RequestMapping("/register")
 	public ModelAndView showRegisterPage() {
@@ -21,16 +22,16 @@ public class UserController {
 		mv.addObject("user", new User());
 		return mv;
 	}
-	
+
 	@Autowired(required = true)
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
 	}
 
 	@RequestMapping("/registerForm")
 	public ModelAndView userAdd(@ModelAttribute("user") User u) {
 		ModelAndView mv = new ModelAndView("/Home");
-		userService.save(u);
+		userDAO.save(u);
 		return mv;
 	}
 

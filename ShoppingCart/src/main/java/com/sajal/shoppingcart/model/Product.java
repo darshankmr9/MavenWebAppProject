@@ -3,24 +3,41 @@ package com.sajal.shoppingcart.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
+@Component
 public class Product implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
+
 	private String name;
+
 	private String desc;
+
 	private long price;
+
 	@Transient
-	private MultipartFile image;
+	private MultipartFile file;
+
+	private String supplierId;
+
+	@ManyToOne
+	@JoinColumn(name = "supplierId", nullable = false, updatable = false, insertable = false)
+	private Supplier supplier;
+
+	private String brandId;
+
+	@ManyToOne
+	@JoinColumn(name = "brandId", nullable = false, updatable = false, insertable = false)
+	private Brand brand;
 
 	public String getId() {
 		return id;
@@ -54,11 +71,44 @@ public class Product implements Serializable {
 		this.price = price;
 	}
 
-	public MultipartFile getImage() {
-		return image;
+	public MultipartFile getFile() {
+		return file;
 	}
 
-	public void setImage(MultipartFile image) {
-		this.image = image;
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
+
+	public String getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(String supplierId) {
+		this.supplierId = supplierId;
+	}
+
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+
+	public String getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(String brandId) {
+		this.brandId = brandId;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
 }

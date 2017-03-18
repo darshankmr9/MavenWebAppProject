@@ -13,7 +13,7 @@
 				<div class="copyright hidden-sm hidden-xs">
 					<p>Copyrights &copy; 2017. All Right Reserved.</p>
 					<p>
-						Developed By : <a href="#" title="">Sajal Gupta</a>
+						Developed By : <a href="https://github.com/sajalrna/" target="_blank">Sajal Gupta</a>
 					</p>
 				</div>
 			</div>
@@ -22,16 +22,16 @@
 					<div class="contact-info">
 						<h2 class="footer-title">Contact Info</h2>
 						<div class="single">
-							<a href="#">GitHub</a>
+							<a href="https://github.com/sajalrna/MavenWebAppProject" target="_blank">GitHub</a>
 						</div>
 						<br>
 						<br>
 						<div class="social-icon">
 							<ul class="list-inline">
-								<li><a href="https://www.facebook.com/" title=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://www.twitter.com/" title=""><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://www.instagram.com/" title=""><i class="fa fa-instagram"></i></a></li>
-								<li><a href="https://www.linkedin.com/" title=""><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>

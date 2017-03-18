@@ -1,7 +1,7 @@
-<html>
-<head>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
+<html>
+<head>
 
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -53,35 +53,34 @@
 							class="dropdown-toggle" data-toggle="dropdown">Products <span
 								class="caret"></span></a>
 							<ul class="dropdown-menu mega-dropdown-menu">
+					
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">BMW</li>
-										<li><a href="#">BMW i8</a></li>
-										<li><a href="#">BMW Z4</a></li>
-										<li><a href="#">BMW GT</a></li>
-										<li><a href="#">BMW M4 GTS</a></li>
+									<li class="dropdown-header">UnknownCompany1</li>
+										<c:forEach var="product" items="${productList}">
+												<li><a href="#">${product.name}</a></li>
+										</c:forEach>
 									</ul>
 								</li>
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">Ferrari</li>
-										<li><a href="#">Ferrari LaFerrari</a></li>
-										<li><a href="#">Ferrari F12 TDF</a></li>
-										<li><a href="#">Ferrari GTC 4 Lusso</a></li>
-										<li><a href="#">Ferrari Product 4</a></li>
-									</ul>
-								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">UnknownCompany</li>
+										<li class="dropdown-header">UnknownCompany2</li>
 										<li><a href="#">UnknownCompany Product 1</a></li>
 										<li><a href="#">UnknownCompany Product 2</a></li>
 										<li><a href="#">UnknownCompany Product 3</a></li>
 										<li><a href="#">UnknownCompany Product 4</a></li>
 									</ul>
 								</li>
-							</ul>
-							</li>
+								<li class="col-sm-3">
+									<ul>
+										<li class="dropdown-header">UnknownCompany3</li>
+										<li><a href="#">UnknownCompany Product 1</a></li>
+										<li><a href="#">UnknownCompany Product 2</a></li>
+										<li><a href="#">UnknownCompany Product 3</a></li>
+										<li><a href="#">UnknownCompany Product 4</a></li>
+									</ul>
+								</li>
+							</ul></li>
 						<li><a href="aboutus">About Us</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -95,12 +94,10 @@
 									<li><a href="register">Register</a></li>
 								</c:if>
 								<c:if test="${not empty loginMessage}">
+									<li><a href="mycart">My Cart</a></li>
 									<li><a href="logout">Logout</a></li>
 								</c:if>
-							</ul>
-							</li>
-						<li><a href="mycart">My Cart</a></li>
-						
+							</ul></li>
 					</ul>
 				</div>
 			</nav>

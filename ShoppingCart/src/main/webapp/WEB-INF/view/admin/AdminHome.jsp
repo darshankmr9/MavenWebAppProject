@@ -1,7 +1,30 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<br>
+<a href="registerBrand">Register Brand</a>
+<br>
+<br>
+<a href="registerProduct">Register Product</a>
+<br>
+<br>
+<a href="registerSupplier">Register Supplier</a>
+<br>
+<c:if test="${RegisterBrandClicked==true}">
 
-<a href="RegisterBrand.jsp">Register Brand</a><br><br>
-<a href="RegisterProduct.jsp">Register Product</a><br><br>
-<a href="RegisterSupplier.jsp">Register Supplier</a>
+	<jsp:forward page="RegisterBrand.jsp"></jsp:forward>
+
+</c:if>
+
+<c:if test="${RegisterProductClicked==true}">
+
+	<jsp:forward page="RegisterProduct.jsp"></jsp:forward>
+
+</c:if>
+
+<c:if test="${RegisterSupplierClicked==true}">
+
+	<jsp:forward page="RegisterSupplier.jsp"></jsp:forward>
+
+</c:if>
 
 <jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>

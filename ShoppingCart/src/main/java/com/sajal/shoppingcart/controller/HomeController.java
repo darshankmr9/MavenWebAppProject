@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,9 +60,8 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping("/validate")
-	public ModelAndView validateCredentials(@RequestParam("username") String id, 
-			@RequestParam("password") String pwd) {
+	@RequestMapping(value="/validate",method=RequestMethod.POST)
+	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
 
 		ModelAndView mv = new ModelAndView("/Home");
 
@@ -70,9 +70,10 @@ public class HomeController {
 			user = userDAO.getUserByName(id);
 
 			if (user.getRole().equals("ROLE_ADMIN")) {
-				mv.addObject("role", "Admin");
+				mv.addObject("role", true);
+
 			} else {
-				mv.addObject("role", "Customer");
+				mv.addObject("role", false);
 			}
 			mv.addObject("successMessage", "Login Successful.");
 			session.setAttribute("loginMessage", "Welcome : " + id);
