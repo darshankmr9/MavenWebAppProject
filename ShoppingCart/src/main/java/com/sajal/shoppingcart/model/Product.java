@@ -3,6 +3,8 @@ package com.sajal.shoppingcart.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,7 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product implements Serializable {
 
 	@Id
-	private String id;
+	@GeneratedValue (strategy=GenerationType.SEQUENCE)
+	private int id;
 
 	private String name;
 
@@ -39,11 +42,11 @@ public class Product implements Serializable {
 	@JoinColumn(name = "brandId", nullable = false, updatable = false, insertable = false)
 	private Brand brand;
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

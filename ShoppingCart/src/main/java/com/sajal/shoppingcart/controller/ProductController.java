@@ -26,8 +26,8 @@ public class ProductController {
 	private ProductDAO productDAO;
 
 	@RequestMapping("/addProduct")
-	public ModelAndView showRegisterProductPage() {
-		ModelAndView mv = new ModelAndView("/RegisterProduct");
+	public ModelAndView showRegisterBrandPage() {
+		ModelAndView mv = new ModelAndView("/admin/RegisterProduct");
 		mv.addObject("product", new Product());
 		mv.addObject("productList", productDAO.product());
 		return mv;
@@ -37,50 +37,47 @@ public class ProductController {
 	String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model,
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
-			model.addAttribute("listProduct", this.productDAO.product());
+			model.addAttribute("productList", this.productDAO.product());
 			System.out.println("error");
-			return "/Home";
+			return "/addProduct";
 		} else {
-			System.out.println("product");
-			this.productDAO.save(p);
-			MultipartFile file = p.getFile();
-			String filelocation = request.getSession().getServletContext().getRealPath("/resources/images/");
-			System.out.println(filelocation);
-			String filename = filelocation + "\\" + p.getId() + ".jpg";
-			System.out.println(filename);
-			try {
-				byte b[] = file.getBytes();
-				FileOutputStream fos = new FileOutputStream(filename);
-				fos.write(b);
-				fos.close();
-			} catch (Exception e) {
+			if (p.getId() == 0) {
+				System.out.println("product");
+				this.productDAO.save(p);
+				MultipartFile file = p.getFile();
+				String filelocation = request.getSession().getServletContext().getRealPath("/resources/images/");
+				System.out.println(filelocation);
+				String filename = filelocation + "\\" + p.getId() + ".jpg";
+				System.out.println(filename);
+				try {
+					byte b[] = file.getBytes();
+					FileOutputStream fos = new FileOutputStream(filename);
+					fos.write(b);
+					fos.close();
+				} catch (Exception e) {
+				}
+			} else {
+				System.out.println("product is going to update");
+				productDAO.update(p);
 			}
+			return "forward:/addProduct";
+		}
+	}
 
-			return "/admin/RegisterProduct";
-		}
-	}
-	
 	@RequestMapping("/deleteProduct/{id}")
-	public ModelAndView deleteProduct(@PathVariable("id") String id)
-	{
-		ModelAndView mv = new ModelAndView("/admin/RegisterProduct");
+	public String deleteProduct(@PathVariable("id") int id) {
 		this.productDAO.delete(id);
-	    return mv;
-	}	
-	
-	@RequestMapping("editProduct/{id}")
-	public String editProduct(@PathVariable("id") String id, Model model, Product p, BindingResult result,
-			HttpServletRequest request) {
-		if (result.hasErrors()) {
-			model.addAttribute("listProduct", this.productDAO.product());
-			System.out.println("error");
-			return "/admin/RegisterProduct";
-		} else {
-			productDAO.update(p);
-			p = productDAO.getProductByID(id);
-			model.addAttribute("product", p);
-			return "/admin/RegisterProduct";
-		}
+		return "forward:/addProduct";
 	}
-	
+
+	@RequestMapping("/editProduct/{id}")
+	public String editProduct(@PathVariable("id") int id, Model model) {
+		
+		model.addAttribute("product", productDAO.getProductByID(id));
+		model.addAttribute("productList", this.productDAO.product());
+
+		return "forward:/addProduct";
+
+	}
+
 }

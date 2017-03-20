@@ -53,7 +53,7 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		try {
 			ss = sessionFactory.getCurrentSession();
 			ss.delete(getProductByID(id));
@@ -75,9 +75,9 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
-	public Product getProductByID(String id) {
+	public Product getProductByID(int id) {
 		ss = sessionFactory.getCurrentSession();
-		return (Product) ss.createQuery("from Product where id = '" + id + "'").uniqueResult();
+		return (Product) ss.createQuery("from Product where id = " + id).uniqueResult();
 	}
 
 	public Product getProductByName(String name) {

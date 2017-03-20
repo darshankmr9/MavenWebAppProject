@@ -12,11 +12,11 @@ public interface ProductDAO {
 
 	public boolean update(Product product); // update product
 
-	public boolean delete(String id); // delete product by id
+	public boolean delete(int id); // delete product by id
 
 	public boolean delete(Product product);// delete product by product
 
-	public Product getProductByID(String id); // get() product by id
+	public Product getProductByID(int id); // get() product by id
 
 	public Product getProductByName(String name); // get() product by name
 	

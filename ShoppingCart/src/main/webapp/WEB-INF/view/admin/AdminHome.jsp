@@ -4,7 +4,7 @@
 <a href="registerBrand">Register Brand</a>
 <br>
 <br>
-<a href="registerProduct">Register Product</a>
+<a href="addProduct">Register Product</a>
 <br>
 <br>
 <a href="registerSupplier">Register Supplier</a>
