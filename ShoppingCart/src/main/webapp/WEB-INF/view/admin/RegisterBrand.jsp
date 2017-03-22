@@ -3,43 +3,47 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/table.js"></script>
-<center> <br>
-<a href="registerProduct">Register Product</a> <br>
-<a href="registerSupplier">Register Supplier</a> <br>
-<br>
-<fm:form action="registerBrand" commandName="brand" method="post">
-	<B>REGISTER A NEW BRAND :</B>
-	<table>
-		<tr>
-			<td>ID of the brand:</td>
-			<c:choose>
-					<c:when test="${ not empty brand.id} ">
-						<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
-					</c:when>
-					<c:otherwise>
-						<td><fm:input path="id" type="text" name="id" required="true" /></td>
-					</c:otherwise>
-				</c:choose>
-		</tr>
-		<tr>
-			<td>Name of the brand:</td>
-			<td><fm:input path="name" type="text" name="name" required="true"/></td>
-		</tr>
-		<tr>
-			<td>Description of the brand:</td>
-			<td><fm:input path="desc" type="text" name="desc" required="true"/></td>
-		</tr>
-		<tr>
-			<c:if test="${not empty brand.name }">
+<center>
+	<br> <a href="addProduct">Register Product</a> <br> <a
+		href="addSupplier">Register Supplier</a> <br> <br>
+
+	<fm:form action="registerBrand" modelAttribute="brand" method="post">
+		<B>REGISTER A NEW BRAND :</B>
+		<table>
+			<tr>
+				<td>ID of the brand:</td>
+				<c:if test="${ not empty brand.name} ">
+					<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
+				</c:if>
+			</tr>
+			<tr>
+				<td>Name of the brand:</td>
+				<td><fm:input path="name" type="text" name="name"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<td>Description of the brand:</td>
+				<td><fm:input path="desc" type="text" name="desc"
+						required="true" /></td>
+			</tr>
+			<tr>
+				<fm:select path="supplier">
+					<c:forEach var="supplier" items="${supplier.name}">
+						<fm:option value="${supplier.name}"></fm:option>
+					</c:forEach>
+				</fm:select>
+			</tr>
+			<tr>
+				<c:if test="${empty brand.name }">
 					<td><input type="submit" value="Add brand"></td>
 				</c:if>
-				<c:if test="${empty brand.name }">
+				<c:if test="${not empty brand.name }">
 					<td><input type="submit" value="Edit brand"></td>
 				</c:if>
-		</tr>
-	</table>
-</fm:form> <br>
-<br>
+			</tr>
+		</table>
+	</fm:form>
+	<br> <br>
 </center>
 <h4>
 	<b>&nbsp;&nbsp;&nbsp;LIST OF ALL THE BRANDS IN THE DATABASE:</b>
@@ -78,8 +82,8 @@
 							<td>${brand.id}</td>
 							<td>${brand.name}</td>
 							<td>${brand.desc}</td>
-							<td><a href="editBrand/${brand.id}">Edit</a></td>
-							<td><a href="<c:url value='/deleteBrand/${brand.id}' />">Delete</a></td>
+							<td><a href="<c:url value='/editBrand/${brand.id}'/>">Edit</a></td>
+							<td><a href="<c:url value='/deleteBrand/${brand.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

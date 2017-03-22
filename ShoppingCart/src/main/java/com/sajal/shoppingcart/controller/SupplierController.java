@@ -24,7 +24,7 @@ public class SupplierController {
 
 	@RequestMapping("/addSupplier")
 	public ModelAndView showRegisterSupplierPage() {
-		ModelAndView mv = new ModelAndView("/RegisterSupplier");
+		ModelAndView mv = new ModelAndView("/admin/RegisterSupplier");
 		mv.addObject("supplier", new Supplier());
 		mv.addObject("supplierList", supplierDAO.supplier());
 		return mv;
@@ -36,33 +36,28 @@ public class SupplierController {
 		if (result.hasErrors()) {
 			model.addAttribute("listSupplier", this.supplierDAO.supplier());
 			System.out.println("error");
-			return "/admin/RegisterSupplier";
+			return "forward:/addSupplier";
 		} else {
 			System.out.println("supplier");
 			this.supplierDAO.save(s);
-			return "/admin/RegisterSupplier";
+			return "forward:/addSupplier";
 		}
 	}
 
 	@RequestMapping("/deleteSupplier/{id}")
-	public ModelAndView deleteSupplier(@PathVariable("id") String id) {
-		ModelAndView mv = new ModelAndView("/admin/RegisterSupplier");
+	public ModelAndView deleteSupplier(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("forward:/addSupplier");
 		this.supplierDAO.delete(id);
 		return mv;
 	}
 
-	@RequestMapping("editSupplier/{id}")
-	public String editSupplier(@PathVariable("id") String id, Model model, Supplier s, BindingResult result,
-			HttpServletRequest request) {
-		if (result.hasErrors()) {
-			model.addAttribute("listSupplier", this.supplierDAO.supplier());
-			System.out.println("error");
-			return "/admin/RegisterSupplier";
-		} else {
-			supplierDAO.update(s);
-			s = supplierDAO.getSupplierByID(id);
-			model.addAttribute("supplier", s);
-			return "/admin/RegisterSupplier";
-		}
+	@RequestMapping("/editSupplier/{id}")
+	public String editBrand(@PathVariable("id") int id, Model model) {
+		
+		model.addAttribute("supplier", supplierDAO.getSupplierByID(id));
+		model.addAttribute("supplierList", this.supplierDAO.supplier());
+
+		return "forward:/addSupplier";
+
 	}
 }

@@ -12,11 +12,11 @@ public interface BrandDAO {
 
 	public boolean update(Brand brand); // update brand
 
-	public boolean delete(String id); // delete brand by id
+	public boolean delete(int id); // delete brand by id
 
 	public boolean delete(Brand brand);// delete brand by brand
 
-	public Brand getBrandByID(String id); // get() brand by id
+	public Brand getBrandByID(int id); // get() brand by id
 
 	public Brand getBrandByName(String name); // get() brand by name
 

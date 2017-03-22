@@ -53,7 +53,7 @@ public class BrandDAOImpl implements BrandDAO {
 		}
 	}
 
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		try {
 			ss = sessionFactory.getCurrentSession();
 			ss.delete(getBrandByID(id));
@@ -75,7 +75,7 @@ public class BrandDAOImpl implements BrandDAO {
 		}
 	}
 
-	public Brand getBrandByID(String id) {
+	public Brand getBrandByID(int id) {
 		ss = sessionFactory.getCurrentSession();
 		return (Brand) ss.createQuery("from Brand where id = '" + id + "'").uniqueResult();
 	}

@@ -4,11 +4,11 @@
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/table.js"></script>
 <center>
-	<br> <a href="registerBrand">Register Brand</a> <br> <a
-		href="registerSupplier">Register Supplier</a> <br> <br>
-		
-	<fm:form action="registerProduct" commandName="product" method="post"
-		enctype="multipart/form-data">
+	<br> <a href="addBrand">Register Brand</a> <br> <a
+		href="addSupplier">Register Supplier</a> <br> <br>
+
+	<fm:form action="registerProduct" modelAttribute="product"
+		method="post" enctype="multipart/form-data">
 		<B>REGISTER A NEW PRODUCT :</B>
 		<table>
 			<c:if test="${ not empty product.name} ">
@@ -16,7 +16,7 @@
 					<td>ID of the product:</td>
 
 					<td><fm:input path="id" type="text" name="id" readonly="true" />
-					<fm:hidden path="id" /></td>
+						<fm:hidden path="id" /></td>
 				</tr>
 			</c:if>
 			<tr>
@@ -40,6 +40,20 @@
 					<td><input type="file" name="file"></td>
 				</tr>
 			</c:if>
+			<tr>
+				<fm:select path="brand">
+					<c:forEach var="brand" items="${brand.name}">
+						<fm:option value="${brand.name}"></fm:option>
+					</c:forEach>
+				</fm:select>
+			</tr>
+			<tr>
+				<fm:select path="supplier">
+					<c:forEach var="supplier" items="${supplier.name}">
+						<fm:option value="${supplier.name}"></fm:option>
+					</c:forEach>
+				</fm:select>
+			</tr>
 			<tr>
 				<c:if test="${empty product.name }">
 					<td><input type="submit" value="Add product"></td>
@@ -92,7 +106,7 @@
 							<td>${product.name}</td>
 							<td>${product.desc}</td>
 							<td>${product.price}</td>
-							<td><a href="<c:url value='editProduct/${product.id}'/>">Edit</a></td>
+							<td><a href="<c:url value='/editProduct/${product.id}'/>">Edit</a></td>
 							<td><a href="<c:url value='/deleteProduct/${product.id}' />">Delete</a></td>
 						</tr>
 					</c:forEach>

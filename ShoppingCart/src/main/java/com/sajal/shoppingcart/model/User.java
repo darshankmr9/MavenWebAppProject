@@ -16,7 +16,7 @@ public class User implements Serializable {
 	private String password;
 	private String email;
 	private String contact;
-	private String Role;
+	private String Enabled;
 
 	public String getId() {
 		return id;
@@ -58,12 +58,14 @@ public class User implements Serializable {
 		this.contact = contact;
 	}
 
-	public String getRole() {
-		return Role;
+	public String getEnabled() {
+		return Enabled;
 	}
 
-	public void setRole(String role) {
-		Role = role;
+	public void setEnabled(String enabled) {
+		Enabled = enabled;
 	}
+	
 	public User(){}
+
 }

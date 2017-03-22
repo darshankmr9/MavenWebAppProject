@@ -39,7 +39,7 @@ public class ProductController {
 		if (result.hasErrors()) {
 			model.addAttribute("productList", this.productDAO.product());
 			System.out.println("error");
-			return "/addProduct";
+			return "forward:/addProduct";
 		} else {
 			if (p.getId() == 0) {
 				System.out.println("product");

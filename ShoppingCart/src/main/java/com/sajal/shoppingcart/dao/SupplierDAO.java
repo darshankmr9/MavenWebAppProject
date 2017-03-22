@@ -12,11 +12,11 @@ public interface SupplierDAO {
 
 	public boolean update(Supplier supplier); // update supplier
 
-	public boolean delete(String id); // delete supplier by id
+	public boolean delete(int id); // delete supplier by id
 
 	public boolean delete(Supplier supplier);// delete supplier by supplier
 
-	public Supplier getSupplierByID(String id); // get() supplier by id
+	public Supplier getSupplierByID(int id); // get() supplier by id
 
 	public Supplier getSupplierByName(String name); // get() supplier by name
 }

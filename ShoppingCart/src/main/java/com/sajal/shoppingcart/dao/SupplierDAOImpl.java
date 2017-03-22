@@ -53,7 +53,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 		}
 	}
 
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 		try {
 			ss = sessionFactory.getCurrentSession();
 			ss.delete(getSupplierByID(id));
@@ -75,7 +75,7 @@ public class SupplierDAOImpl implements SupplierDAO {
 		}
 	}
 
-	public Supplier getSupplierByID(String id) {
+	public Supplier getSupplierByID(int id) {
 		ss = sessionFactory.getCurrentSession();
 		return (Supplier) ss.createQuery("from Supplier where id = '" + id + "'").uniqueResult();
 	}

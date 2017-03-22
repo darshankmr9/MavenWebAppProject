@@ -4,9 +4,9 @@
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/table.js"></script>
 <center>
-	<br> <a href="registerProduct">Register Product</a> <br> <a
-		href="registerBrand">Register Brand</a> <br> <br>
-	<fm:form action="registerSupplier" commandName="supplier" method="post">
+	<br> <a href="addProduct">Register Product</a> <br> <a
+		href="addBrand">Register Brand</a> <br> <br>
+	<fm:form action="registerSupplier" modelAttribute="supplier" method="post">
 		<B>REGISTER A NEW SUPPLIER :</B>
 		<table>
 			<tr>
@@ -31,10 +31,10 @@
 						required="true" /></td>
 			</tr>
 			<tr>
-				<c:if test="${not empty supplier.name }">
+				<c:if test="${empty supplier.name }">
 					<td><input type="submit" value="Add supplier"></td>
 				</c:if>
-				<c:if test="${empty supplier.name }">
+				<c:if test="${not empty supplier.name }">
 					<td><input type="submit" value="Edit supplier"></td>
 				</c:if>
 			</tr>

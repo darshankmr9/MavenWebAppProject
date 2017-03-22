@@ -24,7 +24,7 @@ public class BrandController {
 
 	@RequestMapping("/addBrand")
 	public ModelAndView showRegisterBrandPage() {
-		ModelAndView mv = new ModelAndView("/RegisterBrand");
+		ModelAndView mv = new ModelAndView("/admin/RegisterBrand");
 		mv.addObject("brand", new Brand());
 		mv.addObject("brandList", brandDAO.brand());
 		return mv;
@@ -36,34 +36,29 @@ public class BrandController {
 		if (result.hasErrors()) {
 			model.addAttribute("listBrand", this.brandDAO.brand());
 			System.out.println("error");
-			return "/Home";
+			return "forward:/addBrand";
 		} else {
 			System.out.println("brand");
 			this.brandDAO.save(b);
-			return "/admin/RegisterBrand";
+			return "forward:/addBrand";
 		}
 	}
 
 	@RequestMapping("/deleteBrand/{id}")
-	public ModelAndView deleteBrand(@PathVariable("id") String id) {
-		ModelAndView mv = new ModelAndView("/admin/RegisterBrand");
+	public ModelAndView deleteBrand(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("forward:/addBrand");
 		this.brandDAO.delete(id);
 		return mv;
 	}
 	
-	@RequestMapping("editBrand/{id}")
-	public String editBrand(@PathVariable("id") String id, Model model, Brand b, BindingResult result,
-			HttpServletRequest request) {
-		if (result.hasErrors()) {
-			model.addAttribute("listBrand", this.brandDAO.brand());
-			System.out.println("error");
-			return "/admin/RegisterBrand";
-		} else {
-			brandDAO.update(b);
-			b = brandDAO.getBrandByID(id);
-			model.addAttribute("brand", b);
-			return "/admin/RegisterBrand";
-		}
+	@RequestMapping("/editBrand/{id}")
+	public String editBrand(@PathVariable("id") int id, Model model) {
+		
+		model.addAttribute("brand", brandDAO.getBrandByID(id));
+		model.addAttribute("brandList", this.brandDAO.brand());
+
+		return "forward:/addBrand";
+
 	}
 	
 }

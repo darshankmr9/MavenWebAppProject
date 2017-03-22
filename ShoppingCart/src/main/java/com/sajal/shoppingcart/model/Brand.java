@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class Brand implements Serializable {
 
 	@Id
-	private String id;
+	private int id;
 	
 	private String name;
 	
@@ -24,11 +24,11 @@ public class Brand implements Serializable {
 	@OneToMany(mappedBy="brand", fetch=FetchType.EAGER)
 	private Set<Product> products;
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

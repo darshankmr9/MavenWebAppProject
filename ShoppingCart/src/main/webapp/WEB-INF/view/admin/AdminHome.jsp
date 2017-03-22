@@ -1,13 +1,13 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <br>
-<a href="registerBrand">Register Brand</a>
+<a href="addBrand">Register Brand</a>
 <br>
 <br>
 <a href="addProduct">Register Product</a>
 <br>
 <br>
-<a href="registerSupplier">Register Supplier</a>
+<a href="addSupplier">Register Supplier</a>
 <br>
 <c:if test="${RegisterBrandClicked==true}">
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sajal.shoppingcart.model.Authorize;
 import com.sajal.shoppingcart.model.User;
 
 @Transactional
@@ -36,8 +37,9 @@ public class UserDAOImpl implements UserDAO {
 	public boolean save(User user) {
 		try {
 			session = sessionFactory.getCurrentSession();
+			Authorize auth= new Authorize();
 			user.setId(user.getUsername());
-			user.setRole("ROLE_USER");
+			auth.setRole("ROLE_USER");
 			session.save(user);
 			return true;
 		} catch (Exception e) {

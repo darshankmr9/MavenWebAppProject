@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajal.shoppingcart.dao.UserDAO;
+import com.sajal.shoppingcart.model.Authorize;
 import com.sajal.shoppingcart.model.User;
 
 @Controller
@@ -48,19 +49,13 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping("/mycart")
-	public ModelAndView showMyCartPage() {
-		ModelAndView mv = new ModelAndView("/MyCart");
-		return mv;
-	}
-
 	@RequestMapping("/forgotpassword")
 	public ModelAndView showForgotPasswordPage() {
 		ModelAndView mv = new ModelAndView("/ForgotPassword");
 		return mv;
 	}
 
-	@RequestMapping(value="/validate",method=RequestMethod.POST)
+	@RequestMapping(value = "/validate", method = RequestMethod.POST)
 	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
 
 		ModelAndView mv = new ModelAndView("/Home");
@@ -68,8 +63,8 @@ public class HomeController {
 		if (userDAO.validate(id, pwd)) {
 
 			user = userDAO.getUserByName(id);
-
-			if (user.getRole().equals("ROLE_ADMIN")) {
+			Authorize auth = new Authorize();
+			if (auth.getRole().equals("ROLE_ADMIN")) {
 				mv.addObject("role", true);
 
 			} else {
