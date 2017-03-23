@@ -9,13 +9,12 @@
 
 	<fm:form action="registerBrand" modelAttribute="brand" method="post">
 		<B>REGISTER A NEW BRAND :</B>
-		<table>
+		<table><c:if test="${ not empty brand.name} ">
 			<tr>
 				<td>ID of the brand:</td>
-				<c:if test="${ not empty brand.name} ">
+				
 					<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
-				</c:if>
-			</tr>
+			</tr>	</c:if>
 			<tr>
 				<td>Name of the brand:</td>
 				<td><fm:input path="name" type="text" name="name"
@@ -25,13 +24,6 @@
 				<td>Description of the brand:</td>
 				<td><fm:input path="desc" type="text" name="desc"
 						required="true" /></td>
-			</tr>
-			<tr>
-				<fm:select path="supplier">
-					<c:forEach var="supplier" items="${supplier.name}">
-						<fm:option value="${supplier.name}"></fm:option>
-					</c:forEach>
-				</fm:select>
 			</tr>
 			<tr>
 				<c:if test="${empty brand.name }">

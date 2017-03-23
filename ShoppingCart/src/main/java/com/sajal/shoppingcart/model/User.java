@@ -16,7 +16,7 @@ public class User implements Serializable {
 	private String password;
 	private String email;
 	private String contact;
-	private String Enabled;
+	private boolean Enabled;
 
 	public String getId() {
 		return id;
@@ -58,11 +58,11 @@ public class User implements Serializable {
 		this.contact = contact;
 	}
 
-	public String getEnabled() {
+	public boolean getEnabled() {
 		return Enabled;
 	}
 
-	public void setEnabled(String enabled) {
+	public void setEnabled(Boolean enabled) {
 		Enabled = enabled;
 	}
 	

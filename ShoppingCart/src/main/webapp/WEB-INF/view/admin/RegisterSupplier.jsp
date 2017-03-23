@@ -6,20 +6,16 @@
 <center>
 	<br> <a href="addProduct">Register Product</a> <br> <a
 		href="addBrand">Register Brand</a> <br> <br>
-	<fm:form action="registerSupplier" modelAttribute="supplier" method="post">
+	<fm:form action="registerSupplier" modelAttribute="supplier"
+		method="post">
 		<B>REGISTER A NEW SUPPLIER :</B>
 		<table>
-			<tr>
-				<td>ID of the supplier:</td>
-				<c:choose>
-					<c:when test="${ not empty supplier.id} ">
-						<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
-					</c:when>
-					<c:otherwise>
-						<td><fm:input path="id" type="text" name="id" required="true" /></td>
-					</c:otherwise>
-				</c:choose>
-			</tr>
+			<c:if test="${ not empty supplier.id} ">
+				<tr>
+					<td>ID of the supplier:</td>
+					<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
+				</tr>
+			</c:if>
 			<tr>
 				<td>Name of the supplier:</td>
 				<td><fm:input path="name" type="text" name="name"

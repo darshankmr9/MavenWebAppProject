@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sajal.shoppingcart.model.MyCart;
 
 @Transactional
-@Repository("myCart")
+@Repository("myCartDAO")
 public class CartDAOImpl implements CartDAO {
 
 	@Autowired

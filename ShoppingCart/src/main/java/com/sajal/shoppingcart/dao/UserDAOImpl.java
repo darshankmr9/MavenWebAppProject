@@ -39,6 +39,8 @@ public class UserDAOImpl implements UserDAO {
 			session = sessionFactory.getCurrentSession();
 			Authorize auth= new Authorize();
 			user.setId(user.getUsername());
+			user.setEnabled(true);
+			auth.setId(user.getId());
 			auth.setRole("ROLE_USER");
 			session.save(user);
 			return true;

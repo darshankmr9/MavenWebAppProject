@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class Supplier implements Serializable {
 
 	@Id
+	@GeneratedValue (strategy=GenerationType.SEQUENCE)
 	private int id;
 
 	private String name;

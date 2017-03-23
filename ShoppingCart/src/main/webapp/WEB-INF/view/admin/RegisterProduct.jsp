@@ -34,25 +34,26 @@
 				<td><fm:input path="price" type="text" name="price"
 						required="true" /></td>
 			</tr>
-			<c:if test="${ not empty product.name} ">
-				<tr>
-					<td>Image of the product:</td>
-					<td><input type="file" name="file"></td>
-				</tr>
-			</c:if>
 			<tr>
-				<fm:select path="brand">
-					<c:forEach var="brand" items="${brand.name}">
-						<fm:option value="${brand.name}"></fm:option>
-					</c:forEach>
-				</fm:select>
+				<td>Image of the product:</td>
+				<td><input type="file" name="file"></td>
 			</tr>
 			<tr>
-				<fm:select path="supplier">
-					<c:forEach var="supplier" items="${supplier.name}">
-						<fm:option value="${supplier.name}"></fm:option>
-					</c:forEach>
-				</fm:select>
+				<td>Brand of the Product:</td>
+				<td><select>
+						<c:forEach var="brand" items="${brandList}">
+							<option value="${brand.name}">${brand.name}</option>
+						</c:forEach>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Supplier of the Product:</td>
+				<td><input list="suppliers" name="suppliers">
+				<datalist id="suppliers">
+						<c:forEach var="supplier" items="${supplierList}">
+							<option value="${supplier.name}">
+						</c:forEach>
+					</datalist></td>
 			</tr>
 			<tr>
 				<c:if test="${empty product.name }">

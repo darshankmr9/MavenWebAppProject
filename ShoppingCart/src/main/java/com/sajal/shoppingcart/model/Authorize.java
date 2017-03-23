@@ -3,6 +3,7 @@ package com.sajal.shoppingcart.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Authorize implements Serializable{
 
+	@Id
 	private String id;
 	
 	private String Role;
