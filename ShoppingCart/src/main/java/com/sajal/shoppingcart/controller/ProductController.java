@@ -17,14 +17,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajal.shoppingcart.model.Product;
+import com.sajal.shoppingcart.dao.BrandDAO;
 import com.sajal.shoppingcart.dao.ProductDAO;
+import com.sajal.shoppingcart.dao.SupplierDAO;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
-
+	
 	@RequestMapping("/addProduct")
 	public ModelAndView showRegisterBrandPage() {
 		ModelAndView mv = new ModelAndView("/admin/RegisterProduct");
@@ -67,7 +69,7 @@ public class ProductController {
 	@RequestMapping("/deleteProduct/{id}")
 	public String deleteProduct(@PathVariable("id") int id) {
 		this.productDAO.delete(id);
-		return "forward:/addProduct";
+		return "redirect:/addProduct";
 	}
 
 	@RequestMapping("/editProduct/{id}")
@@ -76,8 +78,13 @@ public class ProductController {
 		model.addAttribute("product", productDAO.getProductByID(id));
 		model.addAttribute("productList", this.productDAO.product());
 
-		return "forward:/addProduct";
+		return "redirect:/addProduct";
 
 	}
 
+	@RequestMapping("/allProducts")
+	public String showAllProducts(){
+		return "/AllProducts";
+	}
+	
 }

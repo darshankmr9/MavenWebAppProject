@@ -43,6 +43,7 @@ public class UserDAOImpl implements UserDAO {
 			auth.setId(user.getId());
 			auth.setRole("ROLE_USER");
 			session.save(user);
+			session.save(auth);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

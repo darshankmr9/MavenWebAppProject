@@ -1,66 +1,95 @@
-<footer>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-6 col-sm-12 right-border">
-				<div class="footer-about">
-					<h2 class="footer-title">About Us</h2>
-					<p>This footers are designed to divide the layout through
-						simple designs. Footers are often underestimated by designers and
-						developers. Pin a fixed-height footer to the bottom of the
-						viewport in desktop browsers with this custom HTML and CSS. How to
-						create a simple WordPress theme; How to integrate Bootstrap 3.</p>
-				</div>
-				<div class="copyright hidden-sm hidden-xs">
-					<p>Copyrights &copy; 2017. All Right Reserved.</p>
-					<p>
-						Developed By : <a href="https://github.com/sajalrna/" target="_blank">Sajal Gupta</a>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-12">
-				<div class="col-md-6 col-sm-6">
-					<div class="contact-info">
-						<h2 class="footer-title">Contact Info</h2>
-						<div class="single">
-							<a href="https://github.com/sajalrna/MavenWebAppProject" target="_blank">GitHub</a>
+<link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
+
+<body>
+	<footer class="text-muted well" id="last-footer">
+		<section>
+			<div class="row" style="font-size: 11px;">
+				<div class="container-fluid">
+
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="row footlinks">
+									<div class="col-xs-12">
+										<h5>About School</h5>
+										<ul class="noBullets">
+											<li><i class="fa fa-angle-right"></i><a href="#">History</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Location</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Faculty</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Architecture</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row footlinks">
+									<div class="col-xs-12">
+										<h5>Join Us</h5>
+										<ul class="noBullets">
+											<li><i class="fa fa-angle-right"></i><a href="#">Facbook
+													Page</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Follow
+													Twitter</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Google
+													Plus</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">E-Mail</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row footlinks">
+									<div class="col-xs-12">
+										<h5>Facilities</h5>
+										<ul class="noBullets">
+											<li><i class="fa fa-angle-right"></i><a href="#">Transport
+													Facility</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">AC
+													Classrooms</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Monthly
+													Trips</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Computer
+													Lab</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row footlinks">
+									<div class="col-xs-12">
+										<h5>Access Links</h5>
+										<ul class="noBullets">
+											<li><i class="fa fa-angle-right"></i><a href="#">Future
+													Plans</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Objectives</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Achievements</a></li>
+											<li><i class="fa fa-angle-right"></i><a href="#">Honours</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<hr />
 						</div>
-						<br>
-						<br>
-						<div class="social-icon">
-							<ul class="list-inline">
-								<li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-								<li><a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
+						<!--/.row inner-->
 					</div>
 				</div>
-				<div class="col-md-6 col-sm-6 left-border">
-					<div class="navigation">
-						<h2 class="footer-title">Navigation</h2>
-						<ul class="list-unstyled">
-							<li><a href="home" title="">Home</a></li>
-							<li><a href="aboutus" title="">About Us</a></li>
-							<li><a href="#" title="">Services</a></li>
-							<li><a href="#" title="">Terms & Conditions</a></li>
-							<li><a href="#" title="">Privacy Policy</a></li>
-							<li><a href="#" title="">Career</a></li>
-							<li><a href="#" title="">Sitemap</a></li>
-							<li><a href="#" title="">Contact Us</a></li>
-						</ul>
+				<!--/.container-->
+				<div class="row">
+					<div class="container text-center">
+						<h5>
+							All Rights Reserved © 2017. <a
+								href="https://github.com/sajalrna/">Sajal Gupta</a>
+						</h5>
 					</div>
 				</div>
-				<div class="clearfix"></div>
-				<div class="copyright visible-sm visible-xs">
-					<p>Copyrights &copy; 2017. All Right Reserved.</p>
-					<p>
-						Developed By : <a href="#" title="">Sajal Gupta</a>
-					</p>
-				</div>
+
 			</div>
-		</div>
-	</div>
-</footer>
+			<!--/.row outer-->
+		</section>
+	</footer>
+</body>
+</html>
 </body>
 </html>

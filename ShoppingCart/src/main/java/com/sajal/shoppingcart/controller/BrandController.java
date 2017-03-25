@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajal.shoppingcart.dao.BrandDAO;
+import com.sajal.shoppingcart.dao.ProductDAO;
 import com.sajal.shoppingcart.model.Brand;
 
 @Controller
@@ -21,7 +22,7 @@ public class BrandController {
 
 	@Autowired
 	private BrandDAO brandDAO;
-
+	
 	@RequestMapping("/addBrand")
 	public ModelAndView showRegisterBrandPage() {
 		ModelAndView mv = new ModelAndView("/admin/RegisterBrand");
@@ -34,21 +35,18 @@ public class BrandController {
 	String insertBrand(@Valid @ModelAttribute("brand") Brand b, BindingResult result, Model model,
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
-			model.addAttribute("listBrand", this.brandDAO.brand());
-			System.out.println("error");
+			model.addAttribute("brandList", this.brandDAO.brand());
 			return "forward:/addBrand";
 		} else {
-			System.out.println("brand");
 			this.brandDAO.save(b);
 			return "forward:/addBrand";
 		}
 	}
 
 	@RequestMapping("/deleteBrand/{id}")
-	public ModelAndView deleteBrand(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("forward:/addBrand");
+	public String deleteBrand(@PathVariable("id") int id) {
 		this.brandDAO.delete(id);
-		return mv;
+		return "redirect:/addBrand";
 	}
 	
 	@RequestMapping("/editBrand/{id}")
@@ -57,7 +55,7 @@ public class BrandController {
 		model.addAttribute("brand", brandDAO.getBrandByID(id));
 		model.addAttribute("brandList", this.brandDAO.brand());
 
-		return "forward:/addBrand";
+		return "redirect:/addBrand";
 
 	}
 	

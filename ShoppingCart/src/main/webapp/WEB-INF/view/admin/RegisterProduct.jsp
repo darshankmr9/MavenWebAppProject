@@ -1,8 +1,7 @@
-<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
+<%@include file="/WEB-INF/view/template/Header.jsp"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="resources/css/table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/table.js"></script>
+
 <center>
 	<br> <a href="addBrand">Register Brand</a> <br> <a
 		href="addSupplier">Register Supplier</a> <br> <br>
@@ -14,7 +13,6 @@
 			<c:if test="${ not empty product.name} ">
 				<tr>
 					<td>ID of the product:</td>
-
 					<td><fm:input path="id" type="text" name="id" readonly="true" />
 						<fm:hidden path="id" /></td>
 				</tr>
@@ -40,20 +38,19 @@
 			</tr>
 			<tr>
 				<td>Brand of the Product:</td>
-				<td><select>
+				<td><fm:select path="brandId">
 						<c:forEach var="brand" items="${brandList}">
-							<option value="${brand.name}">${brand.name}</option>
+							<fm:option value="${brand.name}">${brand.name}</fm:option>
 						</c:forEach>
-				</select></td>
+					</fm:select></td>
 			</tr>
 			<tr>
 				<td>Supplier of the Product:</td>
-				<td><input list="suppliers" name="suppliers">
-				<datalist id="suppliers">
+				<td><fm:select path="supplierId">
 						<c:forEach var="supplier" items="${supplierList}">
-							<option value="${supplier.name}">
+							<fm:option value="${supplier.name}">${supplier.name}</fm:option>
 						</c:forEach>
-					</datalist></td>
+					</fm:select></td>
 			</tr>
 			<tr>
 				<c:if test="${empty product.name }">
@@ -97,6 +94,7 @@
 						<th>Name</th>
 						<th>Description</th>
 						<th>Price</th>
+						<th>BrandName</th>
 						<th colspan="2">Modify</th>
 					</tr>
 				</thead>
@@ -107,6 +105,7 @@
 							<td>${product.name}</td>
 							<td>${product.desc}</td>
 							<td>${product.price}</td>
+							<td>${product.brandId}
 							<td><a href="<c:url value='/editProduct/${product.id}'/>">Edit</a></td>
 							<td><a href="<c:url value='/deleteProduct/${product.id}' />">Delete</a></td>
 						</tr>

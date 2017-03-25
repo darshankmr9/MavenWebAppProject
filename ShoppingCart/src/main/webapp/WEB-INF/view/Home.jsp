@@ -19,46 +19,43 @@
 	</c:when>
 
 	<c:otherwise>
-		<div class="container-fluid">
-			<div id="carousel" class="carousel slide carousel-fade"
-				data-ride="carousel">
+	
+		<!-- CAROUSEL -->
+		<div class="main-wrapper">
+			<div class="carousel slide" data-ride="carousel" id="main-carousel">
+				<!-- Indicators -->
 				<ol class="carousel-indicators">
-					<li data-target="#carousel" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel" data-slide-to="1"></li>
-					<li data-target="#carousel" data-slide-to="2"></li>
+					<li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#main-carousel" data-slide-to="1"></li>
+					<li data-target="#main-carousel" data-slide-to="2"></li>
+
 				</ol>
-				<!-- Carousel items -->
-				<div class="carousel-inner carousel-zoom">
-					<div class="active item">
-						<img class="img-responsive" src="resources/images/image1.jpg">
-						<div class="carousel-caption">
-							<h2>PORSCHE</h2>
-							<p>911R</p>
-						</div>
+
+				<!-- Slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="resources/images/image1.jpg" />
 					</div>
 					<div class="item">
-						<img class="img-responsive" src="resources/images/image2.jpg">
-						<div class="carousel-caption">
-							<h2>FERRARI</h2>
-							<p>458 ITALIA</p>
-						</div>
+						<img src="resources/images/image2.jpg" />
 					</div>
 					<div class="item">
-						<img class="img-responsive" src="resources/images/image3.png">
-						<div class="carousel-caption">
-							<h2>FERRARI</h2>
-							<p>F12 BERLINETTE</p>
-						</div>
+						<img src="resources/images/image3.png" />
 					</div>
 				</div>
-				<!-- Carousel nav -->
-				<!-- NOT WORKING FINE-->
-				<a class="carousel-control left" href="#carousel" data-slide="prev">‹</a>
-				<a class="carousel-control right" href="#carousel" data-slide="next">›</a>
-				<!-- TILL HERE -->
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#main-carousel" role="button"
+					data-slide="prev"> <span class="fa fa-arrow-left"></span>
+				</a> <a class="right carousel-control" href="#main-carousel"
+					role="button" data-slide="next"> <span
+					class="fa fa-arrow-right"></span>
+				</a>
+
 			</div>
 		</div>
-
+		<!-- CAROUSEL END -->
+		
 		<div class="container-fluid">
 			<div class="row grid-divider">
 				<div class="col-sm-4">
@@ -87,6 +84,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</c:otherwise>
 </c:choose>
 <br>

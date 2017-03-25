@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class Brand implements Serializable {
 
-	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
+	@Id
 	private String name;
 	
 	private String desc;

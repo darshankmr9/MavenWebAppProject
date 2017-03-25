@@ -27,16 +27,16 @@ public class Product implements Serializable {
 
 	private long price;
 
+	private String supplierId;
+	
+	private String brandId;
+	
 	@Transient
 	private MultipartFile file;
-
-	private String supplierId;
 
 	@ManyToOne
 	@JoinColumn(name = "supplierId", nullable = false, updatable = false, insertable = false)
 	private Supplier supplier;
-
-	private String brandId;
 
 	@ManyToOne
 	@JoinColumn(name = "brandId", nullable = false, updatable = false, insertable = false)

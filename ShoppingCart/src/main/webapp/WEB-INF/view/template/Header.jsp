@@ -23,15 +23,22 @@
 	type="text/css">
 <link href="resources/css/columnDivider.css" rel="stylesheet"
 	type="text/css">
+<link href="resources/css/backToTop.css" rel="stylesheet"
+	type="text/css">
+<link href="resources/css/allProducts.css" rel="stylesheet"
+	type="text/css">
+<link href="resources/css/table.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="resources/js/loginRegister.js"></script>
 <script type="text/javascript" src="resources/js/header.js"></script>
+<script type="text/javascript" src="resources/js/backToTop.js"></script>
+<script type="text/javascript" src="resources/js/table.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -50,36 +57,19 @@
 				<div class="collapse navbar-collapse js-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown mega-dropdown"><a href="#"
-							class="dropdown-toggle" data-toggle="dropdown">Products <span
+							class="dropdown-toggle" data-toggle="dropdown">Products<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu mega-dropdown-menu">
-					
-								<li class="col-sm-3">
-									<ul>
-									<li class="dropdown-header">UnknownCompany1</li>
-										<c:forEach var="product" items="${productList}">
+								<c:forEach var="brand" items="${brandList}">
+									<li class="col-sm-3">
+										<ul>
+											<li class="dropdown-header">${brand.name}</li>
+											<c:forEach var="product" items="${productList}">
 												<li><a href="#">${product.name}</a></li>
-										</c:forEach>
-									</ul>
-								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">UnknownCompany2</li>
-										<li><a href="#">UnknownCompany Product 1</a></li>
-										<li><a href="#">UnknownCompany Product 2</a></li>
-										<li><a href="#">UnknownCompany Product 3</a></li>
-										<li><a href="#">UnknownCompany Product 4</a></li>
-									</ul>
-								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">UnknownCompany3</li>
-										<li><a href="#">UnknownCompany Product 1</a></li>
-										<li><a href="#">UnknownCompany Product 2</a></li>
-										<li><a href="#">UnknownCompany Product 3</a></li>
-										<li><a href="#">UnknownCompany Product 4</a></li>
-									</ul>
-								</li>
+											</c:forEach>
+										</ul>
+									</li>
+								</c:forEach>
 							</ul></li>
 						<li><a href="aboutus">About Us</a></li>
 					</ul>

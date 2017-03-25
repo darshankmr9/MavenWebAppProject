@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajal.shoppingcart.dao.BrandDAO;
+import com.sajal.shoppingcart.dao.ProductDAO;
 import com.sajal.shoppingcart.dao.SupplierDAO;
 import com.sajal.shoppingcart.model.Supplier;
 
@@ -45,19 +47,18 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/deleteSupplier/{id}")
-	public ModelAndView deleteSupplier(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("forward:/addSupplier");
+	public String deleteSupplier(@PathVariable("id") int id) {
 		this.supplierDAO.delete(id);
-		return mv;
+		return "redirect:/addSupplier";
 	}
 
 	@RequestMapping("/editSupplier/{id}")
 	public String editBrand(@PathVariable("id") int id, Model model) {
-		
+
 		model.addAttribute("supplier", supplierDAO.getSupplierByID(id));
 		model.addAttribute("supplierList", this.supplierDAO.supplier());
 
-		return "forward:/addSupplier";
+		return "redirect:/addSupplier";
 
 	}
 }

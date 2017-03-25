@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajal.shoppingcart.dao.BrandDAO;
+import com.sajal.shoppingcart.dao.ProductDAO;
+import com.sajal.shoppingcart.dao.SupplierDAO;
 import com.sajal.shoppingcart.dao.UserDAO;
 import com.sajal.shoppingcart.model.Authorize;
 import com.sajal.shoppingcart.model.User;
@@ -19,7 +22,19 @@ public class HomeController {
 	private UserDAO userDAO;
 
 	@Autowired
+	private ProductDAO productDAO;
+
+	@Autowired
+	private BrandDAO brandDAO;
+
+	@Autowired
+	private SupplierDAO supplierDAO;
+
+	@Autowired
 	private User user;
+
+	@Autowired
+	private Authorize auth;
 
 	@Autowired
 	private HttpSession session;
@@ -27,6 +42,10 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView showStartPage() {
 		ModelAndView mv = new ModelAndView("/Home");
+		session.setAttribute("productList", productDAO.product());
+		session.setAttribute("brandList", brandDAO.brand());
+		session.setAttribute("supplierList", supplierDAO.supplier());
+
 		return mv;
 	}
 
@@ -59,11 +78,10 @@ public class HomeController {
 	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
 
 		ModelAndView mv = new ModelAndView("/Home");
-
 		if (userDAO.validate(id, pwd)) {
 
 			user = userDAO.getUserByName(id);
-			Authorize auth = new Authorize();
+
 			if (auth.getRole().equals("ROLE_ADMIN")) {
 				mv.addObject("role", true);
 
