@@ -47,7 +47,7 @@ public class SupplierController {
 		model.addAttribute("supplier", supplierDAO.getSupplierByID(id));
 		model.addAttribute("supplierList", this.supplierDAO.supplier());
 
-		return "redirect:/addSupplier";
+		return "/admin/AdminSupplier";
 
 	}
 }

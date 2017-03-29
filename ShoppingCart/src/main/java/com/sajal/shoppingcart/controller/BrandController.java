@@ -45,7 +45,7 @@ public class BrandController {
 		model.addAttribute("brand", brandDAO.getBrandByID(id));
 		model.addAttribute("brandList", this.brandDAO.brand());
 
-		return "redirect:/addBrand";
+		return "/admin/AdminBrand";
 
 	}
 

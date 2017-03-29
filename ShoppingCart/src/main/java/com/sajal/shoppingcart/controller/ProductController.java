@@ -23,6 +23,8 @@ public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
+	
+	private Product product;
 
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
 	String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model,
@@ -77,7 +79,8 @@ public class ProductController {
 	}
 
 	@RequestMapping("/productDetails")
-	public String showProductDetails() {
+	public String showProductDetails(@ModelAttribute("product") Product p) {
+		this.product=p;
 		return "/ProductDetails";
 	}
 

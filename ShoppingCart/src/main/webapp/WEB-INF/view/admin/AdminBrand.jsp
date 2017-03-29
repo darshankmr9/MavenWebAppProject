@@ -83,9 +83,9 @@
 							<td>${brand.name}</td>
 							<td>${brand.desc}</td>
 							<td><a
-								href="<c:url value='${pageContext.request.contextPath}/editBrand/${brand.id}'/>">Edit</a></td>
+								href="<c:url value='/editBrand/${brand.id}'/>">Edit</a></td>
 							<td><a
-								href="<c:url value='${pageContext.request.contextPath}/deleteBrand/${brand.id}'/>">Delete</a></td>
+								href="<c:url value='/deleteBrand/${brand.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
