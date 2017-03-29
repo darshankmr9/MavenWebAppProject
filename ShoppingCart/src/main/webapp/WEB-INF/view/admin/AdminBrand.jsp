@@ -4,11 +4,13 @@
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="resources/js/table.js"></script>
 <center>
-	<br> <a href="addProduct">Register Product</a> <br> <a
-		href="addBrand">Register Brand</a> <br> <br>
-	<fm:form action="registerSupplier" modelAttribute="supplier"
-		method="post">
-		<B>REGISTER A NEW SUPPLIER :</B>
+	<br> <a href="${pageContext.request.contextPath}/addProduct">Register
+		Product</a> <br> <a href="addSupplier">Register Supplier</a> <br>
+	<br>
+
+	<fm:form action="${pageContext.request.contextPath}/registerBrand"
+		modelAttribute="brand" method="post">
+		<B>REGISTER A NEW BRAND :</B>
 		<table>
 			<tr>
 				<td>ID of the brand:</td>
@@ -22,31 +24,29 @@
 				</c:choose>
 			</tr>
 			<tr>
-				<td>Name of the supplier:</td>
+				<td>Name of the brand:</td>
 				<td><fm:input path="name" type="text" name="name"
 						required="true" /></td>
 			</tr>
 			<tr>
-				<td>Address of the supplier:</td>
-				<td><fm:input path="address" type="text" name="address"
+				<td>Description of the brand:</td>
+				<td><fm:input path="desc" type="text" name="desc"
 						required="true" /></td>
 			</tr>
 			<tr>
-				<c:if test="${empty supplier.name }">
-					<td><input type="submit" value="Add supplier"></td>
+				<c:if test="${empty brand.name }">
+					<td><input type="submit" value="Add brand"></td>
 				</c:if>
-				<c:if test="${not empty supplier.name }">
-					<td><input type="submit" value="Edit supplier"></td>
+				<c:if test="${not empty brand.name }">
+					<td><input type="submit" value="Edit brand"></td>
 				</c:if>
 			</tr>
 		</table>
 	</fm:form>
+	<br> <br>
 </center>
-<br>
-<br>
-
 <h4>
-	<b>&nbsp;&nbsp;&nbsp;LIST OF ALL THE SUPPLIER IN THE DATABASE:</b>
+	<b>&nbsp;&nbsp;&nbsp;LIST OF ALL THE BRANDS IN THE DATABASE:</b>
 </h4>
 
 <div class="container-fluid">
@@ -72,19 +72,20 @@
 					<tr>
 						<th>ID</th>
 						<th>Name</th>
-						<th>Address</th>
+						<th>Description</th>
 						<th colspan="2">Modify</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="supplier" items="${supplierList}">
+					<c:forEach var="brand" items="${brandList}">
 						<tr>
-							<td>${supplier.id}</td>
-							<td>${supplier.name}</td>
-							<td>${supplier.address}</td>
-							<td><a href="editSupplier/${supplier.id}">Edit</a></td>
+							<td>${brand.id}</td>
+							<td>${brand.name}</td>
+							<td>${brand.desc}</td>
 							<td><a
-								href="<c:url value='/deleteSupplier/${supplier.id}'/>">Delete</a></td>
+								href="<c:url value='${pageContext.request.contextPath}/editBrand/${brand.id}'/>">Edit</a></td>
+							<td><a
+								href="<c:url value='${pageContext.request.contextPath}/deleteBrand/${brand.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -92,4 +93,5 @@
 		</div>
 	</div>
 </div>
+
 <jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>

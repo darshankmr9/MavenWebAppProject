@@ -78,28 +78,14 @@ public class HomeController {
 	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
 
 		ModelAndView mv = new ModelAndView("/Home");
-		if (userDAO.validate(id, pwd)) {
 
-			user = userDAO.getUserByName(id);
-
-			if (auth.getRole().equals("ROLE_ADMIN")) {
-				mv.addObject("role", true);
-
-			} else {
-				mv.addObject("role", false);
-			}
-			mv.addObject("successMessage", "Login Successful.");
-			session.setAttribute("loginMessage", "Welcome : " + id);
-		} else {
-			mv.addObject("errorMessage", "Login Failed.");
-		}
 		return mv;
 	}
 
 	@RequestMapping("/logout")
 	public ModelAndView logout() {
 		ModelAndView mv = new ModelAndView("/Home");
-		// session.invalidate();
+		session.invalidate();
 		session.removeAttribute("loginMessage");
 		return mv;
 	}

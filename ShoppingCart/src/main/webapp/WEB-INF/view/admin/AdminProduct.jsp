@@ -1,20 +1,22 @@
 <%@include file="/WEB-INF/view/template/Header.jsp"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page isELIgnored="false"%>
 
 <center>
-	<br> <a href="addBrand">Register Brand</a> <br> <a
-		href="addSupplier">Register Supplier</a> <br> <br>
+	<br> <a href="${pageContext.request.contextPath}/addBrand">Register
+		Brand</a> <br> <a
+		href="${pageContext.request.contextPath}/addSupplier">Register
+		Supplier</a> <br> <br>
 
-	<fm:form action="registerProduct" modelAttribute="product"
-		method="post" enctype="multipart/form-data">
+	<fm:form action="${pageContext.request.contextPath}/registerProduct"
+		modelAttribute="product" method="post" enctype="multipart/form-data">
 		<B>REGISTER A NEW PRODUCT :</B>
 		<table>
-			<c:if test="${ not empty product.name} ">
+			<c:if test="${not empty product.name }">
 				<tr>
 					<td>ID of the product:</td>
-					<td><fm:input path="id" type="text" name="id" readonly="true" />
-						<fm:hidden path="id" /></td>
+					<td><fm:input path="id" name="id" type="text" readonly="true"/></td>
 				</tr>
 			</c:if>
 			<tr>
@@ -95,6 +97,7 @@
 						<th>Description</th>
 						<th>Price</th>
 						<th>BrandName</th>
+						<th>SupplierName</th>
 						<th colspan="2">Modify</th>
 					</tr>
 				</thead>
@@ -105,7 +108,8 @@
 							<td>${product.name}</td>
 							<td>${product.desc}</td>
 							<td>${product.price}</td>
-							<td>${product.brandId}
+							<td>${product.brandId}</td>
+							<td>${product.supplierId}</td>
 							<td><a href="<c:url value='/editProduct/${product.id}'/>">Edit</a></td>
 							<td><a href="<c:url value='/deleteProduct/${product.id}' />">Delete</a></td>
 						</tr>
@@ -115,4 +119,15 @@
 		</div>
 	</div>
 </div>
+
+
+<link href="resources/css/table.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="resources/js/table.js"></script>
+<link href="resources/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<link href="resources/css/header.css" rel="stylesheet" type="text/css">
+<link href="resources/css/footer.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="resources/js/header.js"></script>
+
 <jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>

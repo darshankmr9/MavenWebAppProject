@@ -14,26 +14,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.sajal.shoppingcart.model.Product;
-import com.sajal.shoppingcart.dao.BrandDAO;
 import com.sajal.shoppingcart.dao.ProductDAO;
-import com.sajal.shoppingcart.dao.SupplierDAO;
 
 @Controller
 public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
-	
-	@RequestMapping("/addProduct")
-	public ModelAndView showRegisterBrandPage() {
-		ModelAndView mv = new ModelAndView("/admin/RegisterProduct");
-		mv.addObject("product", new Product());
-		mv.addObject("productList", productDAO.product());
-		return mv;
-	}
 
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
 	String insertProduct(@Valid @ModelAttribute("product") Product p, BindingResult result, Model model,
@@ -74,17 +63,22 @@ public class ProductController {
 
 	@RequestMapping("/editProduct/{id}")
 	public String editProduct(@PathVariable("id") int id, Model model) {
-		
+
 		model.addAttribute("product", productDAO.getProductByID(id));
 		model.addAttribute("productList", this.productDAO.product());
 
-		return "redirect:/addProduct";
+		return "/admin/AdminProduct";
 
 	}
 
 	@RequestMapping("/allProducts")
-	public String showAllProducts(){
+	public String showAllProducts() {
 		return "/AllProducts";
 	}
-	
+
+	@RequestMapping("/productDetails")
+	public String showProductDetails() {
+		return "/ProductDetails";
+	}
+
 }

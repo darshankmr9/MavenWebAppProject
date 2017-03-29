@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+
 <%@page isELIgnored="false"%>
 <html>
 <head>
@@ -14,6 +17,8 @@
 	href="http://fonts.googleapis.com/css?family=Varela+Round"
 	type="text/css">
 
+<link href="resources/css/productDetails.css" type="text/css"
+	rel="stylesheet">
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"
 	type="text/css">
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
@@ -23,17 +28,14 @@
 	type="text/css">
 <link href="resources/css/columnDivider.css" rel="stylesheet"
 	type="text/css">
-<link href="resources/css/backToTop.css" rel="stylesheet"
-	type="text/css">
 <link href="resources/css/allProducts.css" rel="stylesheet"
 	type="text/css">
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript" src="resources/js/loginRegister.js"></script>
 <script type="text/javascript" src="resources/js/header.js"></script>
-<script type="text/javascript" src="resources/js/backToTop.js"></script>
 <script type="text/javascript" src="resources/js/table.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
@@ -65,8 +67,13 @@
 										<ul>
 											<li class="dropdown-header">${brand.name}</li>
 											<c:forEach var="product" items="${productList}">
-												<li><a href="#">${product.name}</a></li>
+												<c:if test="${brand.name == product.brandId}">
+													<li><a href="#">${product.name}</a></li>
+												</c:if>
 											</c:forEach>
+											<li class="divider"></li>
+											<li><a href="allProducts">View all Products <span
+													class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
 										</ul>
 									</li>
 								</c:forEach>
@@ -79,14 +86,19 @@
 								Account <span class="caret"></span>
 						</a>
 							<ul class="dropdown-menu" role="menu">
-								<c:if test="${empty loginMessage}">
+								<security:authorize access="isAnonymous()">
 									<li><a href="login">Login</a></li>
 									<li><a href="register">Register</a></li>
-								</c:if>
-								<c:if test="${not empty loginMessage}">
-									<li><a href="mycart">My Cart</a></li>
+								</security:authorize>
+								<security:authorize access="isAuthenticated()">
+									<security:authorize access="hasAuthority('ROLE_USER')">
+										<li><a href="mycart">My Cart</a></li>
+									</security:authorize>
+									<security:authorize access="hasAuthority('ROLE_ADMIN')">
+										<li><a href="adminHome">Admin Home</a></li>
+									</security:authorize>
 									<li><a href="logout">Logout</a></li>
-								</c:if>
+								</security:authorize>
 							</ul></li>
 					</ul>
 				</div>

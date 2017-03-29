@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.sajal.shoppingcart.dao.BrandDAO;
-import com.sajal.shoppingcart.dao.ProductDAO;
 import com.sajal.shoppingcart.dao.SupplierDAO;
 import com.sajal.shoppingcart.model.Supplier;
 
@@ -23,14 +20,6 @@ public class SupplierController {
 
 	@Autowired
 	public SupplierDAO supplierDAO;
-
-	@RequestMapping("/addSupplier")
-	public ModelAndView showRegisterSupplierPage() {
-		ModelAndView mv = new ModelAndView("/admin/RegisterSupplier");
-		mv.addObject("supplier", new Supplier());
-		mv.addObject("supplierList", supplierDAO.supplier());
-		return mv;
-	}
 
 	@RequestMapping(value = "/registerSupplier", method = RequestMethod.POST)
 	public String insertSupplier(@Valid @ModelAttribute("supplier") Supplier s, BindingResult result, Model model,

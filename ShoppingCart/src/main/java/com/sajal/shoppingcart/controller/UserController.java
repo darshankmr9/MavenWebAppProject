@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sajal.shoppingcart.dao.BrandDAO;
-import com.sajal.shoppingcart.dao.ProductDAO;
 import com.sajal.shoppingcart.dao.UserDAO;
 import com.sajal.shoppingcart.model.User;
 
@@ -16,7 +14,7 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	@RequestMapping("/register")
 	public ModelAndView showRegisterPage() {
 		ModelAndView mv = new ModelAndView("/Home");

@@ -35,7 +35,7 @@ public class CartController {
 	@Autowired
 	private HttpSession session;
 
-	@RequestMapping(value = "/mycart", method = RequestMethod.POST)
+	@RequestMapping(value = "/mycart", method = RequestMethod.GET)
 	public String showMyCartPage(Model model) {
 		model.addAttribute("myCart", new MyCart());
 		String loggedInUserid = (String) session.getAttribute("loggedInUserID");
@@ -58,7 +58,7 @@ public class CartController {
 			model.addAttribute("displayCart", "true");
 
 		}
-		return "/Home";
+		return "/MyCart";
 	}
 
 	@RequestMapping(value = "/myCart/add/{id}", method = RequestMethod.GET)

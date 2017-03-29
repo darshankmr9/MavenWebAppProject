@@ -35,11 +35,15 @@ public class AdminController {
 	@Autowired
 	Supplier supplier;
 
-	@RequestMapping("/registerBrand")
-	public ModelAndView registerBrand() {
-		ModelAndView mv = new ModelAndView("/admin/AdminHome");
-		mv.addObject("RegisterBrandClicked", "true");
+	@RequestMapping("/adminHome")
+	public String adminHome() {
+		return "/admin/AdminHome";
+	}
 
+	@RequestMapping("/addBrand")
+	public ModelAndView registerBrand() {
+		ModelAndView mv = new ModelAndView("/admin/AdminBrand");
+		mv.addObject("brand", new Brand());
 		List<Brand> brandList = brandDAO.brand();
 		mv.addObject("brandList", brandList);
 		mv.addObject("brand", brand);
@@ -47,11 +51,10 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping("/registerProduct")
+	@RequestMapping("/addProduct")
 	public ModelAndView registerProduct() {
-		ModelAndView mv = new ModelAndView("/admin/AdminHome");
-		mv.addObject("RegisterProductClicked", "true");
-
+		ModelAndView mv = new ModelAndView("/admin/AdminProduct");
+		mv.addObject("product", new Product());
 		List<Product> productList = productDAO.product();
 		mv.addObject("productList", productList);
 		mv.addObject("product", product);
@@ -59,11 +62,10 @@ public class AdminController {
 		return mv;
 	}
 
-	@RequestMapping("/registerSupplier")
+	@RequestMapping("/addSupplier")
 	public ModelAndView registerSupplier() {
-		ModelAndView mv = new ModelAndView("/admin/AdminHome");
-		mv.addObject("RegisterSupplierClicked", "true");
-
+		ModelAndView mv = new ModelAndView("/admin/AdminSupplier");
+		mv.addObject("supplier", new Supplier());
 		List<Supplier> supplierList = supplierDAO.supplier();
 		mv.addObject("supplierList", supplierList);
 		mv.addObject("supplier", supplier);
