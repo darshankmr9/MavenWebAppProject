@@ -86,9 +86,9 @@
 							<td>${supplier.name}</td>
 							<td>${supplier.address}</td>
 							<td><a
-								href="<c:url value='${pageContext.request.contextPath}/editSupplier/${supplier.id}'/>">Edit</a></td>
+								href="<c:url value='/editSupplier/${supplier.id}'/>">Edit</a></td>
 							<td><a
-								href="<c:url value='${pageContext.request.contextPath}/deleteSupplier/${supplier.id}'/>">Delete</a></td>
+								href="<c:url value='/deleteSupplier/${supplier.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

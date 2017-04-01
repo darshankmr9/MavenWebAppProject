@@ -120,14 +120,4 @@
 	</div>
 </div>
 
-
-<link href="resources/css/table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/table.js"></script>
-<link href="resources/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-<link href="resources/css/header.css" rel="stylesheet" type="text/css">
-<link href="resources/css/footer.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/header.js"></script>
-
 <jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>

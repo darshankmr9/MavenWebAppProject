@@ -15,7 +15,7 @@
 					</div>
 				</div>
 				<div class="details col-md-6">
-					<h3 class="product-title">${product.name}</h3>
+					<h3 class="product-title">${brand.name} ${product.name}</h3>
 					<div class="rating">
 						<div class="stars">
 							<span class="fa fa-star checked"></span> <span
@@ -27,7 +27,7 @@
 					</div>
 					<p class="product-description">${product.desc}</p>
 					<h4 class="price">
-						current price: <span>Rs. ${product.price}</span>
+						ex-showroom price: <span>Rs. ${product.price}</span>
 					</h4>
 					<p class="vote">
 						<strong>91%</strong> of buyers enjoyed this product! <strong>(87

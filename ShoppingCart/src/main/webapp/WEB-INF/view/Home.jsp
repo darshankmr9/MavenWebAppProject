@@ -5,8 +5,6 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@page isELIgnored="false"%>
 
-<h5>${loginMessage}</h5>
-
 <c:if test="${LoginClicked==true or not empty errorMessage}">
 	<jsp:include page="Login.jsp"></jsp:include>
 </c:if>
@@ -27,24 +25,38 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="resources/images/image1.jpg" alt="Chania">
+				<img src="resources/images/carousalbmw.jpg" alt="BMW" width="1778"
+					height="1000" class="img-responsive">
 				<div class="carousel-caption">
-					<h3>Header of Slide 1</h3>
-					<p>Details of Slide 1.</p>
+					<h3>BMW M3</h3>
+					<p>
+						The BMW M3 is a high-performance version of the BMW 3 Series, <br>developed
+						by BMW's in-house motorsport division, BMW M.
+					</p>
 				</div>
 			</div>
 			<div class="item">
-				<img src="resources/images/image1.jpg" alt="Chania">
+				<img src="resources/images/carousalaudi.jpg" alt="Audi" width="1778"
+					height="1000" class="img-responsive">
 				<div class="carousel-caption">
-					<h3>Header of Slide 2</h3>
-					<p>Details of Slide 2.</p>
+					<h3>AUDI RS7</h3>
+					<p>
+						Cloaked in luxury, the 2017 Audi RS 7 is a definitive statement on
+						performance <br> powered by racing technology, yet elegantly
+						refined for the road.
+					</p>
 				</div>
 			</div>
 			<div class="item">
-				<img src="resources/images/image1.jpg" alt="Flower">
+				<img src="resources/images/carousalmerc.jpg" alt="Merc" width="1778"
+					height="1000" class="img-responsive">
 				<div class="carousel-caption">
-					<h3>Header of Slide3</h3>
-					<p>Details of Slide 3.</p>
+					<h3>Mercedes-AMG GTR</h3>
+					<p>
+						Developed in the Green Hell: never before has Mercedes AMG <br>
+						packed so much motorsport technology into a production vehicle
+						than into the new AMG GT R.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -75,23 +87,25 @@
 			<div class="col-padding">
 				<h3>BMW</h3>
 				<div>
-					<img class="img-responsive" src="resources/images/image4.jpg">
+					<img src="resources/images/dividerbmw.jpg" width="400" height="250">
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="col-padding">
-				<h3>FERRARI</h3>
+				<h3>AUDI</h3>
 				<div>
-					<img class="img-responsive" src="resources/images/image5.jpg">
+					<img src="resources/images/divideraudi.jpg" width="400"
+						height="250">
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-4">
 			<div class="col-padding">
-				<h3>ASTON MARTIN</h3>
+				<h3>MERCEDES</h3>
 				<div>
-					<img class="img-responsive" src="resources/images/image6.jpg">
+					<img src="resources/images/dividermerc.jpg"
+						width="400" height="250">
 				</div>
 			</div>
 		</div>

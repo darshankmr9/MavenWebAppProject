@@ -73,20 +73,24 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("/ForgotPassword");
 		return mv;
 	}
+	
+	@RequestMapping("/403")
+	public ModelAndView show403ErrorPage() {
+		ModelAndView mv = new ModelAndView("/error/403");
+		return mv;
+	}
 
 	@RequestMapping(value = "/validate", method = RequestMethod.POST)
 	public ModelAndView validateCredentials(@RequestParam("username") String id, @RequestParam("password") String pwd) {
-
 		ModelAndView mv = new ModelAndView("/Home");
-
+		mv.addObject("errorMessage", "Please enter correct Username/Password");
 		return mv;
 	}
 
 	@RequestMapping("/logout")
 	public ModelAndView logout() {
 		ModelAndView mv = new ModelAndView("/Home");
-		session.invalidate();
-		session.removeAttribute("loginMessage");
+		mv.addObject("logoutMessage", "Logout Successful.");
 		return mv;
 	}
 }

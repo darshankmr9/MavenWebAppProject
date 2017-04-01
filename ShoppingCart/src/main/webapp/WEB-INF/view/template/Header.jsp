@@ -54,7 +54,8 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="home">AutoTraderIN</a>
+					<a class="navbar-brand"
+						href="${pageContext.request.contextPath}/home">AutoTraderIN</a>
 				</div>
 				<div class="collapse navbar-collapse js-navbar-collapse">
 					<ul class="nav navbar-nav">

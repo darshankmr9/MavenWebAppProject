@@ -1,4 +1,3 @@
-<!-- userID=niit, pwd= niit@123.  -->
 <div class="text-center" style="padding: 50px 0">
 	<div class="logo">login</div>
 	<div class="login-form-1">
@@ -10,12 +9,12 @@
 					<div class="form-group">
 						<label for="username" class="sr-only">Username</label> <input
 							type="text" class="form-control" id="username" name="username"
-							placeholder="username">
+							placeholder="username" required="required">
 					</div>
 					<div class="form-group">
 						<label for="password" class="sr-only">Password</label> <input
 							type="password" class="form-control" id="password"
-							name="password" placeholder="password">
+							name="password" placeholder="password" required="required">
 					</div>
 					<div class="form-group login-group-checkbox">
 						<input type="checkbox" id="lg_remember" name="lg_remember">
