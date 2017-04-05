@@ -1,13 +1,5 @@
-    .noBullets{
-    	list-style:none;
-		padding:auto;
-	}
-    
-	#last-footer h5{
-		text-align:center;
-	}
-	.footlinks li a{
-	text-align:center;
-	margin-left:5px ;
-	}
-	.subscribe li{padding:3px;}
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.bg-lightgray
+{
+    background-color:LightGray;
+}

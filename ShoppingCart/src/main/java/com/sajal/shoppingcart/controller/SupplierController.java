@@ -26,11 +26,13 @@ public class SupplierController {
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
 			model.addAttribute("listSupplier", this.supplierDAO.supplier());
-			System.out.println("error");
 			return "forward:/addSupplier";
 		} else {
-			System.out.println("supplier");
-			this.supplierDAO.save(s);
+			if (s.getId() == 0) {
+				this.supplierDAO.save(s);
+			} else {
+				this.supplierDAO.update(s);
+			}
 			return "forward:/addSupplier";
 		}
 	}

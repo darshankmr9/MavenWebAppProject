@@ -2,7 +2,7 @@
 <link href="resources/css/404.css" type="text/css" rel="stylesheet">
 <div id="block_error">
 	<div>
-		<h2>Error 404. &nbspOops you've have encountered an error!</h2>
+		<h2>Error 404.    Oops you've have encountered an error!</h2>
 		<p>
 			It appears that the page you're trying to access doesn't exist.<br>
 			Please go back to the <a

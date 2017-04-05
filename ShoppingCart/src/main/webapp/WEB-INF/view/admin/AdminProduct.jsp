@@ -1,22 +1,17 @@
-<%@include file="/WEB-INF/view/template/Header.jsp"%>
+<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
-
 <center>
-	<br> <a href="${pageContext.request.contextPath}/addBrand">Register
-		Brand</a> <br> <a
-		href="${pageContext.request.contextPath}/addSupplier">Register
-		Supplier</a> <br> <br>
-
+	<br>
 	<fm:form action="${pageContext.request.contextPath}/registerProduct"
 		modelAttribute="product" method="post" enctype="multipart/form-data">
-		<B>REGISTER A NEW PRODUCT :</B>
+		<h4>REGISTER A NEW PRODUCT :</h4>
 		<table>
 			<c:if test="${not empty product.name }">
 				<tr>
 					<td>ID of the product:</td>
-					<td><fm:input path="id" name="id" type="text" readonly="true"/></td>
+					<td><fm:input path="id" name="id" type="text" readonly="true" /></td>
 				</tr>
 			</c:if>
 			<tr>

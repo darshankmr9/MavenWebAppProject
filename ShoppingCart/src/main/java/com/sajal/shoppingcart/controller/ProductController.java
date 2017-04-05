@@ -23,7 +23,7 @@ public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
-	
+
 	private Product product;
 
 	@RequestMapping(value = "/registerProduct", method = RequestMethod.POST)
@@ -31,11 +31,9 @@ public class ProductController {
 			HttpServletRequest request) {
 		if (result.hasErrors()) {
 			model.addAttribute("productList", this.productDAO.product());
-			System.out.println("error");
 			return "forward:/addProduct";
 		} else {
 			if (p.getId() == 0) {
-				System.out.println("product");
 				this.productDAO.save(p);
 				MultipartFile file = p.getFile();
 				String filelocation = request.getSession().getServletContext().getRealPath("/resources/images/");
@@ -50,7 +48,6 @@ public class ProductController {
 				} catch (Exception e) {
 				}
 			} else {
-				System.out.println("product is going to update");
 				productDAO.update(p);
 			}
 			return "forward:/addProduct";
@@ -80,8 +77,7 @@ public class ProductController {
 
 	@RequestMapping("/productDetails")
 	public String showProductDetails(@ModelAttribute("product") Product p) {
-		this.product=p;
+		this.product = p;
 		return "/ProductDetails";
 	}
-
 }

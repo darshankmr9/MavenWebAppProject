@@ -25,7 +25,7 @@ http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
 		<form-login login-page="/login" username-parameter="username"
 			password-parameter="password" login-processing-url="/validate"
-			authentication-failure-forward-url="/login?errorMessage" />
+			authentication-failure-forward-url="/login" />
 
 		<access-denied-handler error-page="/403" />
 

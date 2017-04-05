@@ -1,16 +1,12 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="resources/css/table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/table.js"></script>
+<%@page isELIgnored="false"%>
 <center>
-	<br> <a href="${pageContext.request.contextPath}/addProduct">Register
-		Product</a> <br> <a href="addSupplier">Register Supplier</a> <br>
 	<br>
-
 	<fm:form action="${pageContext.request.contextPath}/registerBrand"
 		modelAttribute="brand" method="post">
-		<B>REGISTER A NEW BRAND :</B>
+		<h4>REGISTER A NEW BRAND :</h4>
 		<table>
 			<tr>
 				<td>ID of the brand:</td>
@@ -82,10 +78,8 @@
 							<td>${brand.id}</td>
 							<td>${brand.name}</td>
 							<td>${brand.desc}</td>
-							<td><a
-								href="<c:url value='/editBrand/${brand.id}'/>">Edit</a></td>
-							<td><a
-								href="<c:url value='/deleteBrand/${brand.id}'/>">Delete</a></td>
+							<td><a href="<c:url value='/editBrand/${brand.id}'/>">Edit</a></td>
+							<td><a href="<c:url value='/deleteBrand/${brand.id}'/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

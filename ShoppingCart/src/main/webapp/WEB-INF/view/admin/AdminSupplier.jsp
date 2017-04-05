@@ -1,22 +1,18 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<link href="resources/css/table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="resources/js/table.js"></script>
+<%@page isELIgnored="false"%>
 <center>
-	<br> <a href="${pageContext.request.contextPath}/addProduct">Register
-		Product</a> <br> <a
-		href="${pageContext.request.contextPath}/addBrand">Register Brand</a>
-	<br> <br>
+	<br>
 	<fm:form action="${pageContext.request.contextPath}/registerSupplier"
 		modelAttribute="supplier" method="post">
 
-		<B>REGISTER A NEW SUPPLIER :</B>
+		<h4>REGISTER A NEW SUPPLIER :</h4>
 		<table>
 			<tr>
-				<td>ID of the brand:</td>
+				<td>ID of the supplier:</td>
 				<c:choose>
-					<c:when test="${not empty brand.id} ">
+					<c:when test="${not empty supplier.id} ">
 						<td><fm:input path="id" type="text" name="id" readonly="true" /></td>
 					</c:when>
 					<c:otherwise>
@@ -85,8 +81,7 @@
 							<td>${supplier.id}</td>
 							<td>${supplier.name}</td>
 							<td>${supplier.address}</td>
-							<td><a
-								href="<c:url value='/editSupplier/${supplier.id}'/>">Edit</a></td>
+							<td><a href="<c:url value='/editSupplier/${supplier.id}'/>">Edit</a></td>
 							<td><a
 								href="<c:url value='/deleteSupplier/${supplier.id}'/>">Delete</a></td>
 						</tr>

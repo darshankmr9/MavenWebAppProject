@@ -5,7 +5,7 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@page isELIgnored="false"%>
 
-<c:if test="${LoginClicked==true or not empty errorMessage}">
+<c:if test="${LoginClicked==true}">
 	<jsp:include page="Login.jsp"></jsp:include>
 </c:if>
 

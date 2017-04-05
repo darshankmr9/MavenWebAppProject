@@ -1,6 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <div class="text-center" style="padding: 50px 0">
-	<div class="logo">register</div>
+	<div class="logo">REGISTRATION FORM</div>
 	<div class="login-form-1">
 		<fm:form id="register-form" class="text-left" action="registerForm"
 			commandName="user">

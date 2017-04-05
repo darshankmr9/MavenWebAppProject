@@ -1,5 +1,5 @@
 <div class="text-center" style="padding: 50px 0">
-	<div class="logo">login</div>
+	<div class="logo">LOGIN FORM</div>
 	<div class="login-form-1">
 		<form id="login-form" class="text-left" method="post"
 			action="validate">
@@ -15,10 +15,6 @@
 						<label for="password" class="sr-only">Password</label> <input
 							type="password" class="form-control" id="password"
 							name="password" placeholder="password" required="required">
-					</div>
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" id="lg_remember" name="lg_remember">
-						<label for="lg_remember">remember me</label>
 					</div>
 				</div>
 				<button type="submit" class="login-button">

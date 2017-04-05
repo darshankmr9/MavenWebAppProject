@@ -28,7 +28,11 @@ public class BrandController {
 			model.addAttribute("brandList", this.brandDAO.brand());
 			return "forward:/addBrand";
 		} else {
-			this.brandDAO.save(b);
+			if (b.getId() == 0) {
+				this.brandDAO.save(b);
+			} else {
+				this.brandDAO.update(b);
+			}
 			return "forward:/addBrand";
 		}
 	}

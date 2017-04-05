@@ -10,12 +10,12 @@
 
 					<div class="preview-pic tab-content">
 						<div class="tab-pane active" id="pic-1">
-							<img src="resources/images/${product.id}.jpg" />
+							<img src="resources/images/${product.id}.jpg" class="img-responsive"/>
 						</div>
 					</div>
 				</div>
 				<div class="details col-md-6">
-					<h3 class="product-title">${brand.name} ${product.name}</h3>
+					<h3 class="product-title">${product.brandId} ${product.name}</h3>
 					<div class="rating">
 						<div class="stars">
 							<span class="fa fa-star checked"></span> <span
@@ -33,12 +33,7 @@
 						<strong>91%</strong> of buyers enjoyed this product! <strong>(87
 							votes)</strong>
 					</p>
-					
-					<h5 class="colors">
-						colors: <span class="color orange not-available"
-							data-toggle="tooltip" title="Not In store"></span> <span
-							class="color green"></span> <span class="color blue"></span>
-					</h5>
+					<br><br>
 					<div class="action">
 						<button class="add-to-cart btn btn-default" type="button">add
 							to cart</button>
