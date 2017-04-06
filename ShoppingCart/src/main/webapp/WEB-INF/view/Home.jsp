@@ -1,5 +1,5 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-
+<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
@@ -83,32 +83,46 @@
 <!-- DIVIDED COLUMNS -->
 <div class="container-fluid">
 	<div class="row grid-divider">
-		<div class="col-sm-4">
-			<div class="col-padding">
-				<h3>BMW</h3>
-				<div>
-					<img src="resources/images/dividerbmw.jpg" width="400" height="250">
+		<a href="${pageContext.request.contextPath}/allProducts/BMW">
+			<div class="col-sm-4">
+				<div class="col-padding">
+					<h3>
+						BMW <img alt="logo" width="25" height="25"
+							src="resources/images/BMW_Logo.jpg">
+					</h3>
+					<div>
+						<img src="resources/images/dividerbmw.jpg" width="400"
+							height="250">
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="col-padding">
-				<h3>AUDI</h3>
-				<div>
-					<img src="resources/images/divideraudi.jpg" width="400"
-						height="250">
+		</a><a href="${pageContext.request.contextPath}/allProducts/AUDI">
+			<div class="col-sm-4">
+				<div class="col-padding">
+					<h3>
+						AUDI <img alt="logo" width="40" height="25"
+							src="resources/images/AUDI_Logo.jpg">
+					</h3>
+					<div>
+						<img src="resources/images/divideraudi.jpg" width="400"
+							height="250">
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="col-padding">
-				<h3>MERCEDES</h3>
-				<div>
-					<img src="resources/images/dividermerc.jpg"
-						width="400" height="250">
+		</a><a href="${pageContext.request.contextPath}/allProducts/MERCEDES">
+			<div class="col-sm-4">
+				<div class="col-padding">
+					<h3>
+						MERCEDES <img alt="logo" width="50" height="30"
+							src="resources/images/MERC_Logo.jpg">
+					</h3>
+					<div>
+						<img src="resources/images/dividermerc.jpg" width="400"
+							height="250">
+					</div>
 				</div>
 			</div>
-		</div>
+		</a>
 	</div>
 </div>
 <!-- END DIVIDED COLUMNS-->

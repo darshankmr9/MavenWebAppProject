@@ -1,4 +1,5 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <center>

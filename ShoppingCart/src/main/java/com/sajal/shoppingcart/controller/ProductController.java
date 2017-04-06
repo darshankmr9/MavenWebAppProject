@@ -1,6 +1,7 @@
 package com.sajal.shoppingcart.controller;
 
 import java.io.FileOutputStream;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sajal.shoppingcart.model.Product;
+import com.sajal.shoppingcart.dao.BrandDAO;
 import com.sajal.shoppingcart.dao.ProductDAO;
 
 @Controller
@@ -23,6 +25,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductDAO productDAO;
+	
+	@Autowired
+	private BrandDAO brandDAO;
 
 	private Product product;
 
@@ -72,6 +77,14 @@ public class ProductController {
 
 	@RequestMapping("/allProducts")
 	public String showAllProducts() {
+		return "/AllProducts";
+	}
+	
+	@RequestMapping("/allProducts/{name}")
+	public String showProductsByBrand(@PathVariable("name") String name, Model model) {
+		System.out.println(name);
+	//	productDAO.getProductByBrand(name);
+		model.addAttribute("productsByBrand", productDAO.getProductByBrand(name));
 		return "/AllProducts";
 	}
 
