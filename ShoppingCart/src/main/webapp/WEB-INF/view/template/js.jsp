@@ -13,3 +13,5 @@
 	src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/search.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/aboutUs.js"></script>

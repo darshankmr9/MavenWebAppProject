@@ -15,7 +15,7 @@
 </c:if>
 
 <security:authorize access="hasAuthority('ROLE_ADMIN')">
-	<jsp:forward page="/adminHome"></jsp:forward>
+	<jsp:forward page="${pageContext.request.contextPath}/adminHome" />
 </security:authorize>
 
 <!-- CAROUSEL -->
