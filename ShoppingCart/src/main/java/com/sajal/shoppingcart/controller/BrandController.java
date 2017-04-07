@@ -19,7 +19,18 @@ import com.sajal.shoppingcart.model.Brand;
 public class BrandController {
 
 	@Autowired
+	private Brand brand;
+
+	@Autowired
 	private BrandDAO brandDAO;
+
+	@RequestMapping("/addBrand")
+	public String registerBrand(Model model) {
+		model.addAttribute("brand", brand);
+		model.addAttribute("brandList", brandDAO.brand());
+
+		return "/admin/AdminBrand";
+	}
 
 	@RequestMapping(value = "/registerBrand", method = RequestMethod.POST)
 	String insertBrand(@Valid @ModelAttribute("brand") Brand b, BindingResult result, Model model,
@@ -28,13 +39,14 @@ public class BrandController {
 			model.addAttribute("brandList", this.brandDAO.brand());
 			return "forward:/addBrand";
 		} else {
-			if (b.getId() == 0) {
+			if (b.getId() == 0)
 				this.brandDAO.save(b);
-			} else {
+			else
 				this.brandDAO.update(b);
-			}
-			return "forward:/addBrand";
+			model.addAttribute("brand", new Brand());
 		}
+		model.addAttribute("brandList", this.brandDAO.brand());
+		return "/admin/AdminBrand";
 	}
 
 	@RequestMapping("/deleteBrand/{id}")
@@ -45,11 +57,8 @@ public class BrandController {
 
 	@RequestMapping("/editBrand/{id}")
 	public String editBrand(@PathVariable("id") int id, Model model) {
-
-		model.addAttribute("brand", brandDAO.getBrandByID(id));
-		model.addAttribute("brandList", this.brandDAO.brand());
-
-		return "/admin/AdminBrand";
+		brand = brandDAO.getBrandByID(id);
+		return "forward:/addBrand";
 
 	}
 

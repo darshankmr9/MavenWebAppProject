@@ -24,7 +24,7 @@
 		<property name="maxUploadSize" value="5242880" />
 	</bean>
 
-	<mvc:resources mapping="/resources/**" location="resources/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />

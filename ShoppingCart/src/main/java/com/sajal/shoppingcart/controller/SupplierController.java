@@ -19,7 +19,18 @@ import com.sajal.shoppingcart.model.Supplier;
 public class SupplierController {
 
 	@Autowired
-	public SupplierDAO supplierDAO;
+	private Supplier supplier;
+
+	@Autowired
+	private SupplierDAO supplierDAO;
+
+	@RequestMapping("/addSupplier")
+	public String registerSupplier(Model model) {
+		model.addAttribute("supplier", supplier);
+		model.addAttribute("supplierList", supplierDAO.supplier());
+
+		return "/admin/AdminSupplier";
+	}
 
 	@RequestMapping(value = "/registerSupplier", method = RequestMethod.POST)
 	public String insertSupplier(@Valid @ModelAttribute("supplier") Supplier s, BindingResult result, Model model,
@@ -32,8 +43,9 @@ public class SupplierController {
 				this.supplierDAO.save(s);
 			} else {
 				this.supplierDAO.update(s);
+				model.addAttribute("supplier", new Supplier());
 			}
-			return "forward:/addSupplier";
+			return "/admin/AdminSupplier";
 		}
 	}
 
@@ -49,7 +61,7 @@ public class SupplierController {
 		model.addAttribute("supplier", supplierDAO.getSupplierByID(id));
 		model.addAttribute("supplierList", this.supplierDAO.supplier());
 
-		return "/admin/AdminSupplier";
+		return "forward:/addSupplier";
 
 	}
 }
