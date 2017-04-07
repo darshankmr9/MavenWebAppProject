@@ -88,9 +88,15 @@ public class ProductController {
 		return "/AllProducts";
 	}
 
-	@RequestMapping("/productDetails")
-	public String showProductDetails(@ModelAttribute("product") Product p) {
+	@RequestMapping("/moreDetails")
+	public String showMoreDetails(@ModelAttribute("product") Product p) {
 		this.product = p;
+		return "/ProductDetails";
+	}
+	
+	@RequestMapping("productDetails/{id}")
+	public String showProductDetails(@PathVariable("id") int id, Model model){
+		model.addAttribute("product", productDAO.getProductByID(id));
 		return "/ProductDetails";
 	}
 }

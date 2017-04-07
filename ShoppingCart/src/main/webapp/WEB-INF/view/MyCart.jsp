@@ -1,5 +1,6 @@
-<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Header.jsp" />
+<jsp:include page="/WEB-INF/view/template/css.jsp" />
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 <hr>
 <div class="container">
 
@@ -40,4 +41,4 @@
 
 </div>
 <hr>
-<jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Footer.jsp" />

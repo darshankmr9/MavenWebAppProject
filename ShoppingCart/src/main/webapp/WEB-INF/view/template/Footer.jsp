@@ -12,15 +12,21 @@
 	</div>
 </footer>
 
-<script type="text/javascript" src="resources/js/loginRegister.js"></script>
-<script type="text/javascript" src="resources/js/header.js"></script>
-<script type="text/javascript" src="resources/js/table.js"></script>
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
+<div id="search">
+	<button type="button" class="close">×</button>
+	<form>
+		<input type="search" value="" placeholder="type keyword(s) here" />
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form>
+</div>
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<span id="top-link-block" class="hidden"> <a href="#top"
+	class="well well-sm"
+	onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+		<i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+</a>
+</span>
 
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 </body>
 </html>

@@ -29,3 +29,5 @@
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/table.css"
 	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/search.css"
+	rel="stylesheet" type="text/css">

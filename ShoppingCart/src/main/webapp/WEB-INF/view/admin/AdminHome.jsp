@@ -1,5 +1,6 @@
-<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Header.jsp" />
+<jsp:include page="/WEB-INF/view/template/css.jsp" />
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <center>
 	<br> <img alt="admin home"
@@ -7,4 +8,4 @@
 		width="1200" height="700">
 	<hr>
 </center>
-<jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Footer.jsp" />

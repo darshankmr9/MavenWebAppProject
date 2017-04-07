@@ -3,7 +3,10 @@ package com.sajal.shoppingcart.model;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -12,9 +15,13 @@ public class User implements Serializable {
 
 	@Id
 	private String id;
+	@NotNull
 	private String username;
+	@NotNull
 	private String password;
+	@Email
 	private String email;
+	@NumberFormat
 	private String contact;
 	private boolean Enabled;
 
@@ -65,7 +72,8 @@ public class User implements Serializable {
 	public void setEnabled(Boolean enabled) {
 		Enabled = enabled;
 	}
-	
-	public User(){}
+
+	public User() {
+	}
 
 }

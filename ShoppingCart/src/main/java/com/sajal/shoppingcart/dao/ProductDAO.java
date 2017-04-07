@@ -18,6 +18,6 @@ public interface ProductDAO {
 
 	public Product getProductByID(int id); // get() product by id
 
-	public List<Product> getProductByBrand(String name); // get() product by name
+	public List<Product> getProductByBrand(String name); // get() product by brand
 	
 }

@@ -1,5 +1,6 @@
-<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Header.jsp" />
+<jsp:include page="/WEB-INF/view/template/css.jsp" />
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
 
@@ -10,13 +11,14 @@
 				<div class="preview col-md-6">
 					<div class="preview-pic tab-content">
 						<div class="tab-pane active" id="pic-1">
-							<img src="resources/images/${product.id}.jpg"
+							<img
+								src="${pageContext.request.contextPath}/resources/images/${product.id}.jpg"
 								class="img-responsive" />
 						</div>
 					</div>
 				</div>
 				<div class="details col-md-6">
-					<h3 class="product-title">${product.brandId}${product.name}</h3>
+					<h3 class="product-title">${product.brandId}&nbsp${product.name}</h3>
 					<div class="rating">
 						<div class="stars">
 							<span class="fa fa-star checked"></span> <span
@@ -47,4 +49,4 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Footer.jsp" />

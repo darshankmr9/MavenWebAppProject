@@ -10,15 +10,8 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<script type="text/javascript" src="resources/js/loginRegister.js"></script>
-<script type="text/javascript" src="resources/js/header.js"></script>
-<script type="text/javascript" src="resources/js/table.js"></script>
-<script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<jsp:include page="/WEB-INF/view/template/css.jsp" />
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 
 </head>
 <body>
@@ -50,7 +43,7 @@
 											<c:forEach var="product" items="${productList}">
 												<c:if test="${brand.name == product.brandId}">
 													<li><a
-														href="${pageContext.request.contextPath}/productDetails/${product.name}">${product.name}</a></li>
+														href="${pageContext.request.contextPath}/productDetails/${product.id}">${product.name}</a></li>
 												</c:if>
 											</c:forEach>
 											<li class="divider"></li>
@@ -85,6 +78,8 @@
 						</security:authorize>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#search"><i class="fa fa-search"
+								aria-hidden="true"></i> Search</a></li>
 						<li class="dropdown"><a
 							href="${pageContext.request.contextPath}/login"
 							class="dropdown-toggle" data-toggle="dropdown" role="button"

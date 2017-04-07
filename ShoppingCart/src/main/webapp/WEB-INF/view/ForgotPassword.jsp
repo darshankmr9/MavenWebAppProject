@@ -1,5 +1,6 @@
-<jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Header.jsp" />
+<jsp:include page="/WEB-INF/view/template/css.jsp" />
+<jsp:include page="/WEB-INF/view/template/js.jsp" />
 <div class="text-center" style="padding: 50px 0">
 	<div class="logo">forgot password</div>
 	<!-- Main Form -->
@@ -33,4 +34,4 @@
 		</form>
 	</div>
 </div>
-<jsp:include page="/WEB-INF/view/template/Footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/view/template/Footer.jsp" />
