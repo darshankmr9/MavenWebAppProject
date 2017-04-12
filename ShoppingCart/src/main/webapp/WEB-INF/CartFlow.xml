@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<var name="cartFlow" class="com.sajal.shoppingcart.controller.CartController" />
+
+	<on-start>
+		<evaluate expression="CartController.initFlow()" result="flowScope.cartlist"></evaluate>
+	</on-start>
+
+	<view-state id="start" view="Cart" model="flowScope.cartlist">
+		<transition on="submit" to="ThankYou" />
+	</view-state>
+
+</flow>

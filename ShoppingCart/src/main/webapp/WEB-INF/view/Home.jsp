@@ -1,10 +1,13 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
-<jsp:include page="/WEB-INF/view/template/css.jsp" />
-<jsp:include page="/WEB-INF/view/template/js.jsp" />
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 <%@page isELIgnored="false"%>
+
+<security:authorize access="hasAuthority('ROLE_ADMIN')">
+<jsp:forward page="/adminHome" />
+</security:authorize>
 
 <c:if test="${LoginClicked==true}">
 	<jsp:include page="Login.jsp"></jsp:include>
@@ -13,10 +16,6 @@
 <c:if test="${RegisterClicked==true}">
 	<jsp:include page="Register.jsp"></jsp:include>
 </c:if>
-
-<security:authorize access="hasAuthority('ROLE_ADMIN')">
-	<jsp:forward page="${pageContext.request.contextPath}/adminHome" />
-</security:authorize>
 
 <!-- CAROUSEL -->
 

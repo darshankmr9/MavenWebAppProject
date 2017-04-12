@@ -61,7 +61,7 @@ public class SupplierController {
 		model.addAttribute("supplier", supplierDAO.getSupplierByID(id));
 		model.addAttribute("supplierList", this.supplierDAO.supplier());
 
-		return "forward:/addSupplier";
+		return "/admin/AdminSupplier";
 
 	}
 }

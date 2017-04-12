@@ -78,7 +78,7 @@ public class ProductController {
 		model.addAttribute("product", productDAO.getProductByID(id));
 		model.addAttribute("productList", this.productDAO.product());
 
-		return "forward:/addProduct";
+		return "/admin/AdminProduct";
 
 	}
 

@@ -1,16 +1,14 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
-<jsp:include page="/WEB-INF/view/template/css.jsp" />
-<jsp:include page="/WEB-INF/view/template/js.jsp" />
-<hr>
-<div class="container">
+
+<div class="container-fluid">
 
 	<h1>Shopping Cart</h1>
 	<hr>
 	<table class="table table-striped table-hover table-bordered">
 		<tbody>
 			<tr>
-				<th>Item</th>
-				<th>QTY</th>
+				<th>Product</th>
+				<th>Quantity</th>
 				<th>Unit Price</th>
 				<th>Total Price</th>
 			</tr>
@@ -21,24 +19,19 @@
 				<td>£250.00</td>
 			</tr>
 			<tr>
-				<th colspan="3"><span class="pull-right">Sub Total</span></th>
-				<th>£250.00</th>
-			</tr>
-			<tr>
-				<th colspan="3"><span class="pull-right">VAT 20%</span></th>
-				<th>£50.00</th>
+				<td colspan="4"></td>
 			</tr>
 			<tr>
 				<th colspan="3"><span class="pull-right">Total</span></th>
 				<th>£300.00</th>
 			</tr>
 			<tr>
-				<td><a href="#" class="btn btn-primary">Continue Shopping</a></td>
+				<td><a href="home" class="btn btn-primary">Continue
+						Shopping</a></td>
 				<td colspan="3"><a href="#" class="pull-right btn btn-success">Checkout</a></td>
 			</tr>
 		</tbody>
 	</table>
 
 </div>
-<hr>
 <jsp:include page="/WEB-INF/view/template/Footer.jsp" />

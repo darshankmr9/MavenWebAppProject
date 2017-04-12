@@ -58,7 +58,7 @@ public class BrandController {
 	@RequestMapping("/editBrand/{id}")
 	public String editBrand(@PathVariable("id") int id, Model model) {
 		brand = brandDAO.getBrandByID(id);
-		return "forward:/addBrand";
+		return "/admin/AdminBrand";
 
 	}
 

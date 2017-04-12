@@ -1,8 +1,12 @@
 package com.sajal.shoppingcart.model;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -23,7 +27,13 @@ public class User implements Serializable {
 	private String email;
 	@NumberFormat
 	private String contact;
+
 	private boolean Enabled;
+
+	private String address;
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
+	private Cart cart;
 
 	public String getId() {
 		return id;
@@ -65,12 +75,28 @@ public class User implements Serializable {
 		this.contact = contact;
 	}
 
-	public boolean getEnabled() {
+	public boolean isEnabled() {
 		return Enabled;
 	}
 
-	public void setEnabled(Boolean enabled) {
+	public void setEnabled(boolean enabled) {
 		Enabled = enabled;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public User() {

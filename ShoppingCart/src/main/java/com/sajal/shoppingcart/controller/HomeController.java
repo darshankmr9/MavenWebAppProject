@@ -50,6 +50,12 @@ public class HomeController {
 		return mv;
 	}
 
+	@RequestMapping("/cart")
+	public ModelAndView showCartPage() {
+		ModelAndView mv = new ModelAndView("/Cart");
+		return mv;
+	}
+
 	@RequestMapping("/aboutus")
 	public ModelAndView showAboutUsPage() {
 		ModelAndView mv = new ModelAndView("/AboutUs");

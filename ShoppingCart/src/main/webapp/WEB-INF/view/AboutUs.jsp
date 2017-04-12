@@ -1,6 +1,5 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
-<jsp:include page="/WEB-INF/view/template/css.jsp" />
-<jsp:include page="/WEB-INF/view/template/js.jsp" />
+
 <link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Teko:400,700"

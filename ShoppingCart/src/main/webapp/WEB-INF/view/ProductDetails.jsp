@@ -1,12 +1,11 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
-<jsp:include page="/WEB-INF/view/template/css.jsp" />
-<jsp:include page="/WEB-INF/view/template/js.jsp" />
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page isELIgnored="false"%>
 
 <div class="container">
 	<div class="card">
-		<div class="container-fliud">
+		<div class="container-fluid">
 			<div class="wrapper row">
 				<div class="preview col-md-6">
 					<div class="preview-pic tab-content">
@@ -38,11 +37,11 @@
 					</p>
 					<br> <br>
 					<div class="action">
-						<button class="add-to-cart btn btn-default" type="button">add
-							to cart</button>
-						<button class="like btn btn-default" type="button">
-							<span class="fa fa-heart"></span>
-						</button>
+						<form
+							action="${pageContext.request.contextPath}/addToCart/${product.id}">
+							<button class="add-to-cart btn btn-default" type="submit">add
+								to cart</button>
+						</form>
 					</div>
 				</div>
 			</div>

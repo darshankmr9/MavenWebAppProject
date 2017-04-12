@@ -78,8 +78,6 @@
 						</security:authorize>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#search"><i class="fa fa-search"
-								aria-hidden="true"></i> Search</a></li>
 						<li class="dropdown"><a
 							href="${pageContext.request.contextPath}/login"
 							class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -96,7 +94,7 @@
 								</security:authorize>
 								<security:authorize access="isAuthenticated()">
 									<security:authorize access="hasAuthority('ROLE_USER')">
-										<li><a href="${pageContext.request.contextPath}/mycart">My
+										<li><a href="${pageContext.request.contextPath}/cart">My
 												Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										</a></li>
 									</security:authorize>

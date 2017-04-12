@@ -1,5 +1,5 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/view/template/css.jsp"></jsp:include>
+
 <link href="${pageContext.request.contextPath}/resources/css/404.css"
 	type="text/css" rel="stylesheet">
 <div id="block_error">

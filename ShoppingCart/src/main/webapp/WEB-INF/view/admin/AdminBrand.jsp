@@ -1,6 +1,5 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
-<jsp:include page="/WEB-INF/view/template/css.jsp" />
-<jsp:include page="/WEB-INF/view/template/js.jsp" />
+
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page isELIgnored="false"%>
