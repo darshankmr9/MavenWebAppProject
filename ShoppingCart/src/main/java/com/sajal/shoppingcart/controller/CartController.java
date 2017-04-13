@@ -27,10 +27,10 @@ public class CartController {
 	Cart cart;
 
 	public Cart initFlow() {
-		return new Cart();
+		return cart;
 	}
 
-	@RequestMapping("/addToCart/{id}")
+	@RequestMapping("/cartadd/{id}")
 	public String addToCart(@PathVariable(value = "id") int id, ModelMap mm, HttpSession session) {
 
 		if (session.getAttribute("cart") == null) {
@@ -43,7 +43,7 @@ public class CartController {
 		} else {
 			cart = (Cart) session.getAttribute("cart");
 			List<Item> listcart = cart.getItem();
-			// using method isExisting here
+			
 			int index = isExisting(id, listcart);
 			if (index == -1)
 				listcart.add(new Item(this.productDAO.getProductByID(id), 1));
@@ -54,10 +54,10 @@ public class CartController {
 			cart.setItem(listcart);
 			session.setAttribute("cart", cart);
 		}
-		return "/"; // page name
+		return "redirect:/cartadd";
 	}
 
-	@RequestMapping(value = "delete/{id}")
+	@RequestMapping(value = "/delete/{id}")
 	public String delete(@PathVariable(value = "id") int id, HttpSession session, Model m) {
 		cart = (Cart) session.getAttribute("cart");
 
@@ -69,7 +69,7 @@ public class CartController {
 
 		session.setAttribute("cart", cart);
 
-		return "redirect:/";
+		return "redirect:/cart";
 	}
 
 	private int isExisting(int id, List<Item> pcart) {

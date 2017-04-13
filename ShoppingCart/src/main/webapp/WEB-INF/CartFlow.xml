@@ -7,11 +7,11 @@ http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 	<var name="cartFlow" class="com.sajal.shoppingcart.controller.CartController" />
 
 	<on-start>
-		<evaluate expression="CartController.initFlow()" result="flowScope.cartlist"></evaluate>
+		<evaluate expression="CartController.initFlow()" result="flowScope.cartFlow"></evaluate>
 	</on-start>
 
 	<view-state id="start" view="Cart" model="flowScope.cartlist">
-		<transition on="submit" to="ThankYou" />
+		<transition on="submit" to="home" />
 	</view-state>
 
 </flow>

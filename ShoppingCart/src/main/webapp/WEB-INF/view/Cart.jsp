@@ -1,8 +1,11 @@
 <jsp:include page="/WEB-INF/view/template/Header.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="container-fluid">
 
-	<h1>Shopping Cart</h1>
+	<h1>
+		<center>Shopping Cart</center>
+	</h1>
 	<hr>
 	<table class="table table-striped table-hover table-bordered">
 		<tbody>
@@ -12,18 +15,21 @@
 				<th>Unit Price</th>
 				<th>Total Price</th>
 			</tr>
-			<tr>
-				<td>Awesome Product</td>
-				<td>1 <a href="#">X</a></td>
-				<td>£250.00</td>
-				<td>£250.00</td>
-			</tr>
+			<c:forEach var="product" items="${sessionScope.cart.item}">
+				<c:set var="sum" value="${sum+product.price*product.quantity}" />
+				<tr>
+					<td>${product.brandId}&nbsp${product.name}</td>
+					<td>${product.quantity}<a href="<c:url value='/delete/{id}'/>">X</a></td>
+					<td>${product.price}</td>
+					<td>${product.price*product*quantity}</td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td colspan="4"></td>
 			</tr>
 			<tr>
 				<th colspan="3"><span class="pull-right">Total</span></th>
-				<th>£300.00</th>
+				<th></th>
 			</tr>
 			<tr>
 				<td><a href="home" class="btn btn-primary">Continue
