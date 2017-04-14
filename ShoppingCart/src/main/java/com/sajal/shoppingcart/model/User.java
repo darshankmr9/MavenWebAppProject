@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -29,8 +31,6 @@ public class User implements Serializable {
 	private String contact;
 
 	private boolean Enabled;
-
-	private String address;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "user", fetch = FetchType.EAGER)
 	private Cart cart;
@@ -89,14 +89,6 @@ public class User implements Serializable {
 
 	public void setCart(Cart cart) {
 		this.cart = cart;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public User() {

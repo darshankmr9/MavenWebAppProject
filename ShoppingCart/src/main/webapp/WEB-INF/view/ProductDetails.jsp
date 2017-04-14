@@ -39,7 +39,8 @@
 					<div class="action">
 						<form
 							action="${pageContext.request.contextPath}/cartadd/${product.id}">
-							<button class="add-to-cart btn btn-default" id="cartadd" type="submit">add
+							<button class="add-to-cart btn btn-default"
+								name="cartadd" id="cartadd" type="submit">add
 								to cart</button>
 						</form>
 					</div>

@@ -7,6 +7,7 @@
 		<center>Shopping Cart</center>
 	</h1>
 	<hr>
+
 	<table class="table table-striped table-hover table-bordered">
 		<tbody>
 			<tr>
@@ -16,12 +17,14 @@
 				<th>Total Price</th>
 			</tr>
 			<c:forEach var="product" items="${sessionScope.cart.item}">
-				<c:set var="sum" value="${sum+product.price*product.quantity}" />
+				<c:set var="sum"
+					value="${sum+product.product.price*product.quantity}" />
 				<tr>
-					<td>${product.brandId}&nbsp${product.name}</td>
-					<td>${product.quantity}<a href="<c:url value='/delete/{id}'/>">X</a></td>
-					<td>${product.price}</td>
-					<td>${product.price*product*quantity}</td>
+					<td>${product.product.brandId}&nbsp${product.product.name}</td>
+					<td>${product.quantity}<a
+						href="<c:url value='/deleteItem/${product.product.id}'/>"> X</a></td>
+					<td>Rs. ${product.product.price}</td>
+					<td>Rs. ${product.product.price*product.quantity}</td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -29,15 +32,16 @@
 			</tr>
 			<tr>
 				<th colspan="3"><span class="pull-right">Total</span></th>
-				<th></th>
+				<th>Rs. ${sum}</th>
 			</tr>
 			<tr>
-				<td><a href="home" class="btn btn-primary">Continue
-						Shopping</a></td>
-				<td colspan="3"><a href="#" class="pull-right btn btn-success">Checkout</a></td>
+				<td><a href="${pageContext.request.contextPath}/home"
+					class="btn btn-primary">Continue Shopping</a></td>
+				<td colspan="3"><a
+					href="${pageContext.request.contextPath}/cartadd"
+					class="pull-right btn btn-success">Checkout</a></td>
 			</tr>
 		</tbody>
 	</table>
-
 </div>
 <jsp:include page="/WEB-INF/view/template/Footer.jsp" />

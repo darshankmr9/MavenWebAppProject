@@ -31,6 +31,4 @@
 	rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/resources/css/search.css"
 	rel="stylesheet" type="text/css">
-<link href="${pageContext.request.contextPath}/resources/css/aboutUs.css"
-	rel="stylesheet" type="text/css">
 	

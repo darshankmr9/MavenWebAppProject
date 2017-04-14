@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,17 +17,12 @@ import com.sajal.shoppingcart.model.Cart;
 import com.sajal.shoppingcart.model.Item;
 
 @Controller
-@Component
 public class CartController {
 
 	@Autowired
 	private ProductDAO productDAO;
 
 	Cart cart;
-
-	public Cart initFlow() {
-		return cart;
-	}
 
 	@RequestMapping("/cartadd/{id}")
 	public String addToCart(@PathVariable(value = "id") int id, ModelMap mm, HttpSession session) {
@@ -43,7 +37,7 @@ public class CartController {
 		} else {
 			cart = (Cart) session.getAttribute("cart");
 			List<Item> listcart = cart.getItem();
-			
+
 			int index = isExisting(id, listcart);
 			if (index == -1)
 				listcart.add(new Item(this.productDAO.getProductByID(id), 1));
@@ -54,11 +48,13 @@ public class CartController {
 			cart.setItem(listcart);
 			session.setAttribute("cart", cart);
 		}
-		return "redirect:/cartadd";
+		System.out.println(cart.getItem());
+		return "/Cart";
 	}
 
-	@RequestMapping(value = "/delete/{id}")
+	@RequestMapping(value = "/deleteItem/{id}")
 	public String delete(@PathVariable(value = "id") int id, HttpSession session, Model m) {
+
 		cart = (Cart) session.getAttribute("cart");
 
 		List<Item> listcart = (List<Item>) cart.getItem();
